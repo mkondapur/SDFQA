@@ -1,23 +1,21 @@
-package com.nk.tests;
+package com.st.test;
 
 import org.apache.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-import com.nk.common.NKCommon;
-import com.nk.common.NKConstants;
-import com.nk.pages.CreateJobAlert;
-import com.nk.pages.CustomerSupportPage;
-import com.nk.pages.HomePage;
-import com.nk.pages.JobSearchNaukriPage;
-import com.nk.pages.LoginNaukriPage;
-import com.nk.pages.LoginRecruitNaukriPage;
-import com.nk.pages.MyNaukriPage;
-import com.nk.pages.RecruitNaukriPage;
-import com.nk.pages.ResumeNaukriPage;
-import com.nk.pages.TermsAndConditions;
-import com.nk.util.BaseTestObject;
+import com.st.common.NKCommon;
+import com.st.pages.CreateJobAlert;
+import com.st.pages.HomePage;
+import com.st.pages.JobSearchNaukriPage;
+import com.st.pages.LoginNaukriPage;
+import com.st.pages.LoginRecruitNaukriPage;
+import com.st.pages.MyNaukriPage;
+import com.st.pages.RecruitNaukriPage;
+import com.st.pages.ResumeNaukriPage;
+import com.st.pages.TermsAndConditions;
+import com.st.util.BaseTestObject;
 
 import net.sourceforge.htmlunit.corejs.javascript.ObjToIntMap;
 
