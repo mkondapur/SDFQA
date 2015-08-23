@@ -1,8 +1,8 @@
-<!DOCTYPE Suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Mastering" parallel="false">
-	<test name="EssayGradingTestPlan">
-		<classes>
-			<class name="com.st.test.HomePageTest"/>
-		</classes>
-	</test>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Page Object test example">
+  <test name="sample test">
+    <classes>
+      <class name="com.st.test.HomePageTest"/>
+    </classes>
+  </test>
 </suite>

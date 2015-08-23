@@ -24,7 +24,7 @@
             <configuration>
                 <testFailureIgnore>true</testFailureIgnore>
 					<suiteXmlFiles>
-					<suiteXmlFile>${basedir}\TestSuite\${SuiteFile}</suiteXmlFile>
+					<suiteXmlFile>${basedir}\src\test\resource\TestSuite\${SuiteFile}</suiteXmlFile>
 					</suiteXmlFiles>
 					
 					<systemProperties>
