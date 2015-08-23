@@ -55,6 +55,12 @@ public interface NKConstants {
     String ERROR_KEYSKILLS = "Keyskills should not be blank";
     String ERROR_NAMEYOURJOBALERT = "Please give a name to your Job Alert";
     String JOBALERTNAME = "MyAlert";
+    String PAGETITLE_JOBSEEKER="jobseeker login";
+	 String PAGETITLE_MYNUAKRIPAGE="mynaukri";
+	 String PAGETITLE_LOGINRECRUITNAUKRIPAGE="Naukri.com";
+	 String PAGETITLE_NAUKRIFASTFORWARDPAGE="Resume Writing Services - CV - Bio data - Naukri.com";
+	 String FORGOTPASSWORD_RESETPASSWORD="Reset Your Password";
+String PAGETITLE_RESUMENAUKRIPAGE="Resume Writing Services - CV - Bio data - Naukri.com";
     
     
     
