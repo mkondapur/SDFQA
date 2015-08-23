@@ -26,6 +26,7 @@ public class BaseTestObject {
 
 	protected static WebDriver uiDriver;;
 	public static String propertyFilePath = System.getProperty("user.dir")+"\\src\\test\\resource\\TestData\\testData.properties";
+	public static String chromeDriverPath = System.getProperty("user.dir")+"\\src\\test\\resource\\Drivers\\chromedriver.exe";
 	FileInputStream fileInput =null;
 	Properties ObjProperty = getPropertyContents();
 	public String browser = ObjProperty.getProperty("browser");
@@ -74,12 +75,12 @@ public class BaseTestObject {
             uiDriver = new FirefoxDriver();
         }
         else if(browser.equalsIgnoreCase("GC")){
-            System.setProperty("webdriver.chrome.driver","C:\\WebDrivers\\chromedriver.exe");
+            System.setProperty("webdriver.chrome.driver",chromeDriverPath);
             uiDriver = new ChromeDriver();
         }
-        else if(browser.equalsIgnoreCase("ie")){
-            System.setProperty("webdriver.ie.driver","C:\\IEdriver.exe");
-            uiDriver = new InternetExplorerDriver();
+        else if(browser.equalsIgnoreCase("IE")){
+            //System.setProperty("webdriver.ie.driver","C:\\IEdriver.exe");
+            //uiDriver = new InternetExplorerDriver();
         }
         else{
         	throw new Exception("Browser is not correct");
