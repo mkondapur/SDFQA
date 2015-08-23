@@ -1,10 +1,10 @@
-package com.nk.pages;
+package com.st.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
-import com.nk.util.BasePageObject;
+import com.st.util.BasePageObject;
 
 public class CreateJobAlert extends BasePageObject
 {

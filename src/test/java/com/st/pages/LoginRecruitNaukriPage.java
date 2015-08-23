@@ -1,11 +1,10 @@
-package com.nk.pages;
+package com.st.pages;
 
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-import com.nk.common.NKConstants;
-import com.nk.util.BasePageObject;
+import com.st.util.BasePageObject;
 
 import junit.framework.Assert;
 

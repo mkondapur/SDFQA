@@ -1,4 +1,4 @@
-package com.nk.pages;
+package com.st.pages;
 
 import java.awt.image.BufferStrategy;
 import java.sql.Driver;
@@ -10,6 +10,8 @@ import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+import com.st.common.NKConstants;
+import com.st.util.BasePageObject;
 
 import org.apache.bcel.verifier.exc.VerificationException;
 import org.apache.log4j.Logger;
@@ -21,8 +23,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
-import com.nk.common.NKConstants;
-import com.nk.util.BasePageObject;
+
 
 public class HomePage extends BasePageObject
 {
@@ -113,6 +114,11 @@ public class HomePage extends BasePageObject
 	By ddExperience = By.xpath("//div/div/div[1]/ul/li[contains(.,'5')]");
 	By expArrow = By.xpath("//div[@id='exp_dd']//span[@class='smArw']");
 	By registerLink = By.xpath("//div[@class='row txtC']/a[contains(.,'Register Now')]");
+	By imgSIteLogo = By.cssSelector(".nLogo.fl>img");
+	By lnkJobs = By.xpath("//a[contains(@title,'Search Jobs')]/div");
+	By lnkLogin = By.xpath("//a[contains(@title,'Jobseeker Login')]/div");
+	By lnkAdvancedSearch = By.linkText("Advanced Search");
+	By txtSkill = By.xpath(".//*[@id='skill']//input[1]");
 	
 	
 	
@@ -123,6 +129,7 @@ public class HomePage extends BasePageObject
 	String Parent_window=null;
 	String actual_Result=null;
 	String expected_Result=null;
+	
 	public int exps;
 	
 	
@@ -1766,45 +1773,7 @@ public class HomePage extends BasePageObject
 	}
 	/********************************************************************************************************************************************************/
 	
-	public  SearchResultJobDescriptionPage getJobsByCategoryLists() throws Exception
-	{
-		Log.info("Getting the jobs by category list");
-		
-		try 
-		{
-			Parent_window=uiDriver.getWindowHandle();
-			List<WebElement> jobsbycategoryweblists= uiDriver.findElements(jobsbycategorylinsList);
-			List<String> arrayjobscategorylist= new ArrayList<String>();
-			
-			for (int i = 0; i < jobsbycategoryweblists.size(); i++) 
-			{
-				String arrnames=jobsbycategoryweblists.get(i).getText();
-				System.out.println(arrnames);
-				String Splitx=arrnames;
-				String delim=" ";
-				String temp[]=Splitx.split(delim);
-				System.out.println(temp[0]);
-				arrayjobscategorylist.add(arrnames);
-				jobsbycategoryweblists.get(i).click();
-				Thread.sleep(3000);
-			
-			for (String Childwindow : uiDriver.getWindowHandles())
-					
-			{
-				uiDriver.switchTo().window(Childwindow);
-			}
-			
-			uiDriver.close();
-			uiDriver.switchTo().window(Parent_window);
-			}
-		} 
-		catch (Exception e) 
-		{
-			throw new Exception("FAILED WHILE VERIFYING THE GETTING THE CATEGORY LISTS"+ "\n getJobsByCategoryLists" +e.getLocalizedMessage());
-		}
-		
-		return new SearchResultJobDescriptionPage(uiDriver);
-	}
+	
 	/********************************************************************************************************************************************************/
 	
 	public boolean verifyViewAllCategoriesLink() throws Exception
@@ -2066,7 +2035,7 @@ public class HomePage extends BasePageObject
 	}
 	/********************************************************************************************************************************************************/
 	
-	public JobSeekerLoginPage clickOnLoginbutton() throws Exception
+	public LoginPage clickOnLoginbutton() throws Exception
 	{
 		Log.info("Clicking on loginbutton link button");
 		
@@ -2081,7 +2050,7 @@ public class HomePage extends BasePageObject
 		{
 			throw new Exception("FAILED WHILE CLICKING ON login  LINK BUTTON" + e.getLocalizedMessage());
 		}
-		return new JobSeekerLoginPage(uiDriver);
+		return new LoginPage(uiDriver);
 	}
 	/********************************************************************************************************************************************************/
 	
@@ -2114,6 +2083,53 @@ public class HomePage extends BasePageObject
 	
 	/********************************************************************************************************************************************************/
 	
-	
-
+	public boolean isSiteLogoDisplayed(){
+		
+		flag = isElementPresent(imgSIteLogo);
+			//flag = uiDriver.findElement(imgSIteLogo).isDisplayed();
+			return flag;
+		}
+		
+		public boolean isLoginButtonDisplayed() {
+			flag = uiDriver.findElement(lnkLogin).isDisplayed();
+			
+			return flag;
+		}
+		public JobseekerLoginPage clickOnLogin(){
+			isLoginButtonDisplayed();
+			uiDriver.findElement(lnkLogin).click();
+			return new JobseekerLoginPage(uiDriver);
+		}
+		
+		public AdvancedSearchPage clickOnAdvancedSearch(){
+			WebElement element = uiDriver.findElement(lnkAdvancedSearch);
+			flag = element.isDisplayed();
+			Assert.assertTrue(flag, "Advanced search link is not displayed");
+			element.click();
+			return new AdvancedSearchPage(uiDriver);
+		}
+		
+		public HomePage enterSkill(String skill){
+			WebElement element = uiDriver.findElement(txtSkill);
+			flag = element.isDisplayed();
+			Assert.assertTrue(flag, "Advanced search link is not displayed");
+			element.clear();
+			element.sendKeys(skill);
+			return this;
+		}
+		public boolean verifyLogin() throws Exception {
+			Log.info(">>>Verifying Login is present or not>>>>>>>>");
+			try {
+				flag=uiDriver.findElement(siteLogo ).isDisplayed();
+				Assert.assertTrue(flag, "Login is present");
+				
+			} catch (Exception e) {
+			 throw new Exception("Failed while verifying Login"+e.getLocalizedMessage());
+				// TODO: handle exception
+			}
+			return flag;
+		
+		
+		
+		}
 }

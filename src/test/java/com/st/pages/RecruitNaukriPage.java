@@ -1,4 +1,4 @@
-package com.nk.pages;
+package com.st.pages;
 
 import java.sql.Driver;
 
@@ -8,7 +8,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
-import com.nk.util.BasePageObject;
+import com.st.util.BasePageObject;
+
 
 public class RecruitNaukriPage extends BasePageObject
 {

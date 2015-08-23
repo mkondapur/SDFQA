@@ -1,12 +1,13 @@
-package com.nk.tests;
+package com.st.test;
 
 import org.testng.annotations.Test;
-import com.nk.common.NKCommon;
-import com.nk.common.NKConstants;
-import com.nk.pages.HomePage;
-import com.nk.pages.JobListingsPage;
-import com.nk.pages.SearchResultPage;
-import com.nk.util.BaseTestObject;
+
+import com.st.common.NKCommon;
+import com.st.common.NKConstants;
+import com.st.pages.HomePage;
+import com.st.pages.JobListingsPage;
+import com.st.pages.SearchResultPage;
+import com.st.util.BaseTestObject;
 
 public class SearchPageTest extends BaseTestObject {
 

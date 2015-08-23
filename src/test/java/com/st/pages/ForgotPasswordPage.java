@@ -1,4 +1,4 @@
-package com.nk.pages;
+package com.st.pages;
 
 import java.util.concurrent.TimeUnit;
 
@@ -6,9 +6,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
+import com.st.common.NKConstants;
+import com.st.util.BasePageObject;
 
-import com.nk.common.NKConstants;
-import com.nk.util.BasePageObject;
+
+
 
 public class ForgotPasswordPage extends BasePageObject {
 	

@@ -1,4 +1,4 @@
-package com.nk.pages;
+package com.st.pages;
 
 import java.util.logging.Logger;
 
@@ -7,8 +7,9 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
-import com.nk.common.NKConstants;
-import com.nk.util.BasePageObject;
+import com.st.common.NKConstants;
+import com.st.util.BasePageObject;
+
 
 public class CreateYourJobAlertsPage extends BasePageObject{
 	

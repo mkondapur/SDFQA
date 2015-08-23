@@ -1,4 +1,4 @@
-package com.nk.tests;
+package com.st.test;
 
 import java.util.concurrent.TimeUnit;
 
@@ -7,13 +7,12 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import com.nk.pages.ForgotPasswordPage;
-import com.nk.pages.HomePage;
-import com.nk.pages.JobAlertCreatedPage;
-import com.nk.pages.JobSeekerLoginPage;
-import com.nk.pages.LoginPage;
-import com.nk.pages.MyNaukriPage;
-import com.nk.util.BaseTestObject;
+import com.st.pages.ForgotPasswordPage;
+import com.st.pages.HomePage;
+import com.st.pages.JobAlertCreatedPage;
+import com.st.pages.LoginPage;
+import com.st.pages.MyNaukriPage;
+import com.st.util.BaseTestObject;
 
 public class LoginPageTest extends BaseTestObject {
 

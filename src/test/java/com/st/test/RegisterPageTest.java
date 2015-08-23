@@ -1,18 +1,17 @@
-package com.nk.tests;
+package com.st.test;
 
 
 import org.testng.annotations.Test;
 
-import com.nk.common.NKCommon;
-import com.nk.common.NKConstants;
-import com.nk.pages.CompleteMyProfilePage;
-import com.nk.pages.CreateYourJobAlertsPage;
-import com.nk.pages.HomePage;
-import com.nk.pages.JobAlertCreatedPage;
-import com.nk.pages.RegistrationPage;
-import com.nk.pages.SaveMyProfilePage;
-import com.nk.pages.SearchResultPage;
-import com.nk.util.BaseTestObject;
+import com.st.common.NKCommon;
+import com.st.common.NKConstants;
+import com.st.pages.CompleteMyProfilePage;
+import com.st.pages.CreateYourJobAlertsPage;
+import com.st.pages.HomePage;
+import com.st.pages.JobAlertCreatedPage;
+import com.st.pages.RegistrationPage;
+import com.st.pages.SaveMyProfilePage;
+import com.st.util.BaseTestObject;
 
 public class RegisterPageTest extends BaseTestObject{
 	

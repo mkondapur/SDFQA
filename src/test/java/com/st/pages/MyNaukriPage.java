@@ -1,4 +1,4 @@
-package com.nk.pages;
+package com.st.pages;
 
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
@@ -7,7 +7,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 
-import com.nk.util.BasePageObject;
+import com.st.common.NKConstants;
+import com.st.util.BasePageObject;
+
 
 public class MyNaukriPage extends BasePageObject
 {
@@ -30,6 +32,7 @@ public class MyNaukriPage extends BasePageObject
 	String actual_Result;
 	String expected_Result;
 	String Parent_window;
+	String txt = null;
 	/****************************************************************************************************************************************/
 	/**
 	 * @author manjunathr
@@ -130,4 +133,8 @@ public class MyNaukriPage extends BasePageObject
 		return new LoginNaukriPage(uiDriver);
 	}
 	
+	public void verifyingUsernameLoginPage(){
+		txt=uiDriver.getTitle().toLowerCase();
+		Assert.assertEquals(txt, NKConstants.PAGETITLE_MYNUAKRIPAGE,"User Login Page tilte is not displayed");
+		}
 }

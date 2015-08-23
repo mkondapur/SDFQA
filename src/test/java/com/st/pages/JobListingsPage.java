@@ -1,4 +1,4 @@
-package com.nk.pages;
+package com.st.pages;
 
 import java.util.Set;
 
@@ -6,7 +6,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
-import com.nk.util.BasePageObject;
+import com.st.util.BasePageObject;
+
 
 public class JobListingsPage extends BasePageObject{
 		

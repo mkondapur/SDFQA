@@ -1,4 +1,4 @@
-package com.nk.pages;
+package com.st.pages;
 
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
@@ -6,8 +6,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
-import com.nk.common.NKConstants;
-import com.nk.util.BasePageObject;
+import com.st.common.NKConstants;
+import com.st.util.BasePageObject;
+
 
 public class RegistrationPage extends BasePageObject {
 	

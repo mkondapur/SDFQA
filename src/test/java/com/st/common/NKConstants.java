@@ -2,6 +2,7 @@ package com.st.common;
 
 public interface NKConstants {
 
+	public static final String Path_TestData = System.getProperty("user.dir")+"\\src\\test\\resource\\TestData\\testDataSheet.xlsx";
 	String PAGETITLE_HOMEPAGE = "Jobs - Recruitment - Job Search - Employment - Job Vacancies - Naukri.com";
     String SKILL = "selenium";
     String LOCATION = "bangalore";
@@ -60,7 +61,7 @@ public interface NKConstants {
 	 String PAGETITLE_LOGINRECRUITNAUKRIPAGE="Naukri.com";
 	 String PAGETITLE_NAUKRIFASTFORWARDPAGE="Resume Writing Services - CV - Bio data - Naukri.com";
 	 String FORGOTPASSWORD_RESETPASSWORD="Reset Your Password";
-String PAGETITLE_RESUMENAUKRIPAGE="Resume Writing Services - CV - Bio data - Naukri.com";
+     String PAGETITLE_RESUMENAUKRIPAGE="Resume Writing Services - CV - Bio data - Naukri.com";
     
     
     

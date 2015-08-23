@@ -21,7 +21,7 @@ import com.st.util.BaseTestObject;
 import com.st.util.ExcelutilObject;
 
 import net.sourceforge.htmlunit.corejs.javascript.ast.ObjectProperty;
-public class HomePageTest extends BaseTestObject{
+public class DemoHomePageTest extends BaseTestObject{
 	
 public  HomePage objHomePage;
 public JobseekerLoginPage objJobseekerLoginPage;
