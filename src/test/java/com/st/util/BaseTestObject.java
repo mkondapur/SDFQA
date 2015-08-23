@@ -17,6 +17,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.BrowserType;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
@@ -69,7 +70,7 @@ public class BaseTestObject {
 	
 	
 	
-	@BeforeTest(alwaysRun = true)
+	@BeforeClass(alwaysRun = true)
     public void setup() throws Exception{
         if(browser.equalsIgnoreCase("FF")){
             uiDriver = new FirefoxDriver();
