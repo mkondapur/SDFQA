@@ -73,7 +73,7 @@ public class BasePageObject {
 		return element.getAttribute(attributeValue);
 	}
 	public  String getCurrentLocation() {
-		return uiDriver.getCurrentUrl();
+		return uiDriver.getCurrentUrl().trim();
 	}
 	
 	public  void switchToDefaultFrame() {
@@ -110,8 +110,8 @@ public class BasePageObject {
 		uiDriver.switchTo().window((String) winNames.toArray()[window - 1]);
 	}
 	
-	public  void mouseover(WebElement theElement) {
-		new Actions(uiDriver).moveToElement(theElement).perform();
+	public  void mouseover(By theElement) {
+		new Actions(uiDriver).moveToElement((WebElement) theElement).build().perform();
 	}
 
 	
@@ -322,6 +322,13 @@ public class BasePageObject {
 		windowName = windowName.toString();
 		uiDriver.switchTo().window(windowName);
 		waitImplicit(3000);
+	}
+public  String getPageTitle() {
+		return uiDriver.getTitle().trim();
+	}
+	
+	public  void compareTwoStrings(String Actual, String Expected, String Message) {
+		Assert.assertEquals(Actual, Expected, Message);
 	}
 
 
