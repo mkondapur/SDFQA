@@ -7,6 +7,7 @@ import org.testng.annotations.Test;
 
 import com.st.common.NKCommon;
 import com.st.pages.CreateJobAlert;
+import com.st.pages.CustomerSupportPage;
 import com.st.pages.HomePage;
 import com.st.pages.JobSearchNaukriPage;
 import com.st.pages.LoginNaukriPage;
