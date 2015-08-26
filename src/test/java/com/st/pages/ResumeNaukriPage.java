@@ -33,6 +33,7 @@ public class ResumeNaukriPage extends BasePageObject
 	By ResumeDisplay=By.xpath("//div[@class='wrap']/div/h2");
 	By customersupportlink= By.partialLinkText("Customer Support service");
 	By Homeimagebutton=By.cssSelector(".home");
+	By NaukriFFSitelogo=By.cssSelector(".nLogo.fl>img");
 	
 	
 	
@@ -211,7 +212,7 @@ public class ResumeNaukriPage extends BasePageObject
 	/*************************************************************************************************************************************/
 	/**
 	 * @author manjunathr
-	 * @return flag
+	 * @return Home Page
 	 * @throws Exception
 	 * This method will check Home Page Image Button is Present on the Screen
 	 */
@@ -228,6 +229,52 @@ public class ResumeNaukriPage extends BasePageObject
 			throw new Exception("FAILED WHILE VERIFYING THE Home Image button  " + " \n verifyHomeImage" +e.getLocalizedMessage());
 		}
 		return new HomePage(uiDriver);
+	}
+
+	/*************************************************************************************************************************************/
+	
+	/**
+	 * @author manjunathr
+	 * @return flag
+	 * @throws Exception
+	 * This method will check Naukri Fast forward site logo box is Present on the Screen
+	 */
+	public boolean verifyNaukriFastforwardSitelogo() throws Exception
+	{
+		Log.info("verification of NaukriFastforwardSitelogo ");
+		try 
+		{
+			flag=isElementPresent(NaukriFFSitelogo);
+			Assert.assertTrue(flag, "NaukriFastforwardSitelogo button is Missing");
+			return flag;
+		} 
+		catch (Exception e) 
+		{
+
+			throw new Exception("FAILED WHILE VERIFYING THE NaukriFastforwardSitelogo  " + " \n verifyNaukriFastforwardSitelogo" +e.getLocalizedMessage());
+		}
+	}
+
+	/*************************************************************************************************************************************/
+	/**
+	 * @author manjunathr
+	 * @return Home Page
+	 * @throws Exception
+	 * This method will check Home Page Image Button is Present on the Screen
+	 */
+	public ResumeNaukriPage clickOnNaukriFastforwardSitelogo() throws Exception
+	{
+		Log.info("Click on Naukri Fast forward site logo button ");
+		try 
+		{
+			uiDriver.findElement(NaukriFFSitelogo).click();
+		} 
+		catch (Exception e) 
+		{
+
+			throw new Exception("FAILED WHILE VERIFYING THE Naukri Fast forward Site Logo  " + " \n clickOnNaukriFastforwardSitelogo" +e.getLocalizedMessage());
+		}
+		return this;
 	}
 
 	/*************************************************************************************************************************************/

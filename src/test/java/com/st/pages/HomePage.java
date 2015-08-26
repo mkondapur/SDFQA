@@ -36,7 +36,7 @@ public class HomePage extends BasePageObject
 	
 	
 	/* UI ELEMENTS */
-	
+	By jobsbydelhi=By.partialLinkText("Jobs in Delhi");
 	By siteLogo= By.cssSelector(".nLogo.fl>img");
 	By userName=By.id("eLogin");
 	By HeaderLinksNames=By.xpath("//div[@class='headGNB cloneCont wrap']//ul[1]/li/a/div");
@@ -1042,7 +1042,7 @@ public class HomePage extends BasePageObject
 		Log.info("Verification of know your resume score link");
 		try
 		{
-			flag= uiDriver.findElement(knowyourresumescorelink).isDisplayed();
+			flag= isElementPresent(knowyourresumescorelink);
 			Assert.assertTrue(flag, "Know your Resume Score link object is missing");
 			return flag;
 			
@@ -1052,30 +1052,41 @@ public class HomePage extends BasePageObject
 		}
 	}
 	/********************************************************************************************************************************************************/
+	/**
+	 * @author manjunathr
+	 * @return  ResumeNaukriPage
+	 * @throws Exception
+	 * This Method will redirect to Resume Naukri page after clicking on the Link
+	 */
 	
-	
-	public void clickOnKnowYourResumeScoreLink() throws Exception
+	public ResumeNaukriPage clickOnKnowYourResumeScoreLink() throws Exception
 	{
 		Log.info("clicking on know your resume Link");
 		
 		try 
 		{
-			verifyKnowYourResumeScoreLink();
 			uiDriver.findElement(knowyourresumescorelink).click();
 		} catch (Exception e) 
 		{
 			throw new Exception("FAILED WHILE CLICKING ON THE KNOW YOUR RESUME SCORE LINK" + "\n clickOnKnowYourResumeScoreLink" +e.getLocalizedMessage());
 		}
+		return new ResumeNaukriPage(uiDriver);
 	}
 	/********************************************************************************************************************************************************/
-	
+	/**
+	 * 
+	 * @author manjunathr
+	 * @return flag
+	 * @throws Exception
+	 * This Method will verify that Get Your Free Text is Present on the Screen
+	 */
 	public boolean verifyGetYourFreeText() throws Exception
 	{
 		Log.info("Verification of get your Free text ");
 		
 		try 
 		{
-			flag=uiDriver.findElement(GetYourFreeText).isDisplayed();
+			flag=isElementPresent(GetYourFreeText);
 			Assert.assertTrue(flag, "Get your Free Text object is Missing");
 			return flag;
 		} catch (Exception e) 
@@ -1084,14 +1095,18 @@ public class HomePage extends BasePageObject
 		}
 	}
 	/********************************************************************************************************************************************************/
-	
+	/**
+	 * 
+	 * @return
+	 * @throws Exception
+	 */
 	
 	public boolean verifyResumeFeedbackReportLink() throws Exception
 	{
 		Log.info("Verification of Resume Feedback Report Link");
 		try 
 		{
-			flag=uiDriver.findElement(resumefeebackResport).isDisplayed();
+			flag=isElementPresent(resumefeebackResport);
 			Assert.assertTrue(flag, "Resume Feedback Report object is missing");
 			return flag;
 		} catch (Exception e) 
@@ -1102,7 +1117,7 @@ public class HomePage extends BasePageObject
 	/********************************************************************************************************************************************************/
 	
 	
-	public void clickOnResumeFeedbackReportLink() throws Exception
+	public ResumeNaukriPage clickOnResumeFeedbackReportLink() throws Exception
 	{
 		Log.info("Clicking on ResumeFeedbackReportLink");
 		try 
@@ -1114,6 +1129,7 @@ public class HomePage extends BasePageObject
 		{
 		throw new Exception("FAILED WHILE CLICKING ON RESUME FEEDBACK REPORT LINK " + "\n ResumeFeedbackReportLink "+e.getLocalizedMessage());
 		}
+		return new ResumeNaukriPage(uiDriver);
 	}
 	/********************************************************************************************************************************************************/
 	
@@ -1124,7 +1140,7 @@ public class HomePage extends BasePageObject
 		
 		try 
 		{
-			flag=uiDriver.findElement(notGettingEnoughProfilesViews).isDisplayed();
+			flag=isElementPresent(notGettingEnoughProfilesViews);
 			Assert.assertTrue(flag, "Not getting enough profiles links object is missing");
 			return flag;
 			
@@ -1141,7 +1157,6 @@ public class HomePage extends BasePageObject
 		
 		try
 		{
-			verifyNotGettingEnoughProfilesLink();
 			uiDriver.findElement(notGettingEnoughProfilesViews).click();
 			
 		} catch (Exception e) 
@@ -1158,7 +1173,7 @@ public class HomePage extends BasePageObject
 		
 		try
 		{
-			flag=uiDriver.findElement(get3to4TimesMoreProfiles).isDisplayed();
+			flag=isElementPresent(get3to4TimesMoreProfiles);
 			Assert.assertTrue(flag, "get 3-4 more times profiles text is missing");
 			return flag;
 			
@@ -1176,7 +1191,7 @@ public class HomePage extends BasePageObject
 		
 		try 
 		{
-			flag=uiDriver.findElement(Tollfreetext).isDisplayed();
+			flag=isElementPresent(Tollfreetext);
 			Assert.assertTrue(flag, "Verifcation of Toll free number");
 			return flag;
 			
@@ -1193,7 +1208,7 @@ public class HomePage extends BasePageObject
 		
 		try 
 		{
-			flag= uiDriver.findElement(searchallcurrentandwalkinjobs).isDisplayed();
+			flag= isElementPresent(searchallcurrentandwalkinjobs);
 			Assert.assertTrue(flag, "VerifySearchForAllCurrentandWalkingjobs object is missing");
 			return flag;
 		} catch (Exception e) 
@@ -1209,7 +1224,7 @@ public class HomePage extends BasePageObject
 		
 		try 
 		{
-			flag= uiDriver.findElement(searchwalkingjobsbutton).isDisplayed();
+			flag= isElementPresent(searchwalkingjobsbutton);
 			Assert.assertTrue(flag, "SearchWalkinJObsButton object is missing");
 			return flag;
 			
@@ -1226,7 +1241,7 @@ public class HomePage extends BasePageObject
 		
 		try
 		{ 
-			verifySearchWalkinJobsButton();
+			
 		uiDriver.findElement(searchwalkingjobsbutton).click();
 			
 		} catch (Exception e) 
@@ -1242,7 +1257,7 @@ public class HomePage extends BasePageObject
 		
 		try
 		{
-			flag=uiDriver.findElement(careernavigatiorimagelink).isDisplayed();
+			flag=isElementPresent(careernavigatiorimagelink);
 			Assert.assertTrue(flag, "Career navigator image link is not displaying");
 			return flag;
 			
@@ -1688,7 +1703,7 @@ public class HomePage extends BasePageObject
 	}
 	
 	/********************************************************************************************************************************************************/
-	
+
 	public JobSearchNaukriPage clickOnJobsBYLocationsName() throws Exception
 	{
 		Log.info("Getting the Locations Name");
@@ -1709,6 +1724,7 @@ public class HomePage extends BasePageObject
 				
 				Thread.sleep(4000);
 				switchToNewWindow();
+				
 				
 			
 				uiDriver.close();
@@ -2129,7 +2145,30 @@ public class HomePage extends BasePageObject
 			}
 			return flag;
 		
-		
+		}
+			public JobSearchNaukriPage clickOndelhiCallsLink() throws Exception
+			{
+				Log.info("Clicking on naukri link");
+				
+				try 
+				{
+					//verifyNaukriCallsLink();
+					uiDriver.findElement(jobsbydelhi).click();
+					
+					switchToNewWindow();
+					
+				/*	WebElement eld= uiDriver.findElement(youeorder);
+					String actualresult= eld.getText();
+					String ExpectedResult="Your Order Details";
+					Assert.assertEquals(actualresult, ExpectedResult, "Your order is Not Matching");*/
+					
+				} catch (Exception e) 
+				{
+					throw new Exception("FAILED WHILE CLICKING ON NAUKRI LINKS LINK "+ "\n clickOnNaukriCallsLink" +e.getLocalizedMessage());
+				}
+				
+				return new JobSearchNaukriPage(uiDriver);
+				
+			}
 		
 		}
-}

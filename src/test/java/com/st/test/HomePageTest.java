@@ -49,7 +49,7 @@ public String parentWindowName = "Jobs - Recruitment - Job Search - Employment -
 @Parameters({"browserType","url"})
 
 
-@Test(priority=1, enabled=true)
+@Test(priority=1, enabled=false)
 public void clickOnSiteLogoAndCheckThePageTitle() throws Exception
 {
 	Log.info("----> Clicking on Site Logo and Verifying Home Page Title<------------");
@@ -70,7 +70,7 @@ catch (Exception e)
 
 }
 
-@Test (priority=3, enabled=true)
+@Test (priority=3, enabled=false)
 public void clickOnEmployerZone() throws Exception
 {
 Log.info("Clicking on the Employer Zone Link");
@@ -97,7 +97,7 @@ catch (Exception e)
 	throw new Exception("FAILED WHILE CLICKING ON EMPLOYER ZONE TESTCASE" + "\n clickOnEmployerZone " +e.getLocalizedMessage());
 }
 }
-@Test (priority=4, enabled=true)
+@Test (priority=4, enabled=false)
 public void clickOnBuyonlineLinks() throws Exception
 {
 	/*String parentWindowName =uiDriver.getWindowHandle();
@@ -135,7 +135,7 @@ try
 
 
 
-@Test (priority=5,enabled=true)
+@Test (priority=5,enabled=false)
 public void clickOnPostYourCV() throws Exception
 {
 	String parentWindowName = uiDriver.getWindowHandle();
@@ -171,7 +171,7 @@ public void clickOnPostYourCV() throws Exception
 	
 }
 
-@Test (priority=6, enabled=true)
+@Test (priority=6, enabled=false)
 public void clickOnCreateJobAlert() throws Exception
 {
 	String parentWindowName = uiDriver.getWindowHandle();
@@ -195,7 +195,7 @@ public void clickOnCreateJobAlert() throws Exception
 	}
 }
 
-@Test (priority=2, enabled=true)
+@Test (priority=2, enabled=false)
 public void clickOnNaukriFastForwardLink() throws Exception
 {
 	try 
@@ -211,6 +211,36 @@ public void clickOnNaukriFastForwardLink() throws Exception
 		objResumeNaukriPage.verifyHomeImage();
 		objHomePage=objResumeNaukriPage.clickOnHomeImage();
 		objHomePage.verifyHomePageTitle();
+		objHomePage.verifyKnowYourResumeScoreLink();
+		objResumeNaukriPage=objHomePage.clickOnKnowYourResumeScoreLink();
+		objResumeNaukriPage.waitImplicit();
+		objResumeNaukriPage.verifyNaukriFastforwardSitelogo();
+		objResumeNaukriPage.clickOnNaukriFastforwardSitelogo();
+		Thread.sleep(4000);
+		objResumeNaukriPage.verifyCustomerServiceLink();
+		objResumeNaukriPage.clickOnCustomerSupportService();
+		objResumeNaukriPage.verifyHomeImage();
+		objHomePage=objResumeNaukriPage.clickOnHomeImage();
+		objHomePage.verifyHomePageTitle();
+		objHomePage.verifyResumeFeedbackReportLink();
+		objResumeNaukriPage=objHomePage.clickOnResumeFeedbackReportLink();
+		objResumeNaukriPage.verifyNaukriFastforwardSitelogo();
+		objResumeNaukriPage.clickOnNaukriFastforwardSitelogo();
+		objResumeNaukriPage.verifyCustomerServiceLink();
+		objResumeNaukriPage.clickOnCustomerSupportService();
+		objResumeNaukriPage.verifyHomeImage();
+		objHomePage=objResumeNaukriPage.clickOnHomeImage();
+		objHomePage.verifyHomePageTitle();
+		objHomePage.verifyGetYourFreeText();
+		objHomePage.verifyGet3to4MoreTimesProfilesText();
+		objHomePage.verifyNotGettingEnoughProfilesLink();
+		objResumeNaukriPage=objHomePage.clickOnNotGettingEnoughProfilesLink();
+		objResumeNaukriPage.verifyNaukriFastforwardSitelogo();
+		objResumeNaukriPage.clickOnNaukriFastforwardSitelogo();
+		objResumeNaukriPage.verifyCustomerServiceLink();
+		objResumeNaukriPage.clickOnCustomerSupportService();
+		objHomePage=objResumeNaukriPage.clickOnHomeImage();
+		objHomePage.verifyHomePageTitle();
 		
 	} catch (Exception e)
 	{
@@ -219,15 +249,16 @@ public void clickOnNaukriFastForwardLink() throws Exception
 	
 }
 
-/*@Test(priority=7,enabled=true)
+@Test(priority=7,enabled=true)
 public void clickOnJobsbyLocationsLinks() throws Exception
 {
 try {
 	objHomePage= new HomePage(uiDriver);
 	objHomePage.verifyHomePageTitle();
 	objHomePage.verifyJobsByLocation();
-objJobSearchNaukriPage=objHomePage.clickOnJobsBYLocationsName();
+objJobSearchNaukriPage=objHomePage.clickOndelhiCallsLink();
 objJobSearchNaukriPage.verifyLocationName();
+objJobSearchNaukriPage.clickOnJobSearchNaukriPageSiteLogo();
 objHomePage.verifyHomePageTitle();
 objJobSearchNaukriPage=objHomePage.clickOnViewAllLocationsLink();
 objHomePage.verifyHomePageTitle();;
@@ -236,7 +267,7 @@ objHomePage.verifyHomePageTitle();;
 {
 	throw new Exception("FAILED WHILE VERIFYING AND CLICKING ON THE JOBS BY LINKS " + "\n clickOnJobsbyLocationsLinks" +e.getLocalizedMessage());
 }	
-}*/
+}
 
 
 public void closeAndSwitchToParent(String parentWindowName ) throws InterruptedException{

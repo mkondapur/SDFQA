@@ -93,21 +93,21 @@ public class JobSearchNaukriPage extends BasePageObject
 		}
 		
 	}
-	public HomePage verifyLocationName() throws Exception
+	public void  verifyLocationName() throws Exception
 	{
 		try 
 		{
-			actual_Result=uiDriver.findElement(locationtextbox).getAttribute("placeholder");
-			System.out.println("Manjunath" + actual_Result);
+			actual_Result=uiDriver.findElement(locationtextbox).getAttribute("value");
+			System.out.println("Manjunath  " + actual_Result);
 			actual_Result1=uiDriver.findElement(locationname).getText();
-			System.out.println(actual_Result1);
+		System.out.println(actual_Result1);
 			
 			
 		} catch (Exception e) 
 		{
 			throw new Exception(" FAILED TO GET THE LOCATIONS NAME IN" +" verifylocationname" +e.getLocalizedMessage());
 		}
-		return new HomePage(uiDriver);
+		//return new HomePage(uiDriver);
 		
 	}
 	
