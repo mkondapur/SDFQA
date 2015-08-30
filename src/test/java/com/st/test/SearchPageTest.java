@@ -7,6 +7,7 @@ import com.st.common.NKConstants;
 import com.st.pages.HomePage;
 import com.st.pages.JobListingsPage;
 import com.st.pages.SearchResultPage;
+import com.st.util.BasePageObject;
 import com.st.util.BaseTestObject;
 
 public class SearchPageTest extends BaseTestObject {
@@ -15,6 +16,7 @@ SearchResultPage objSearchResultPage;
 HomePage objHomePage;
 JobListingsPage objJobListingPage;
 NKCommon objNKCommon;
+BasePageObject objBasePageObject;
 	
 	@Test(priority = -1)
 	public void popUpClose() throws InterruptedException{
@@ -34,30 +36,52 @@ NKCommon objNKCommon;
 	@Test(priority=3)
 	public void verifySearchBySkill() throws Exception{
 		
-		objNKCommon = new NKCommon(uiDriver);
+		/*objNKCommon = new NKCommon(uiDriver);
 		objNKCommon.closepopUp();
 		objHomePage = new HomePage(uiDriver);
 		objHomePage.enterSkillEntry(NKConstants.SKILL);
 		objHomePage.clickOnSearchButton();		
 		SearchResultPage searchRes = new SearchResultPage(uiDriver);
 	    String displayedSkill = searchRes.getSkillDisplayed();
-		searchRes.verifySkillsSelectedAndDisplayed(NKConstants.SKILL,displayedSkill);
+		searchRes.verifySkillsSelectedAndDisplayed(NKConstants.SKILL,displayedSkill);*/
+		
+		objNKCommon = new NKCommon(uiDriver);
+		objNKCommon.closepopUp();
+		objBasePageObject = new BasePageObject(uiDriver);
+		String skill = objBasePageObject.getExcelTest(1, 1, "Search");
+		objHomePage = new HomePage(uiDriver);
+		objHomePage.enterSkillEntry(skill);		
+		objHomePage.clickOnSearchButton();		
+		SearchResultPage searchRes = new SearchResultPage(uiDriver);
+	    String displayedSkill = searchRes.getSkillDisplayed();
+		searchRes.verifySkillsSelectedAndDisplayed(skill,displayedSkill);
+		
 	}
 	
 	@Test(priority=1)
 	public void verifySearchByLocationField() throws Exception{
-		objHomePage = new HomePage(uiDriver);
+		/*objHomePage = new HomePage(uiDriver);
 		objHomePage.enterLocation(NKConstants.LOCATION);
 		objSearchResultPage = objHomePage.clickOnSearchButton();
 		SearchResultPage searchRes = new SearchResultPage(uiDriver);
 		searchRes.verifyJobLocations();
+		objHomePage.clickOnSiteLogo();*/
+		
+		objBasePageObject = new BasePageObject(uiDriver);
+		String locn = objBasePageObject.getExcelTest(1, 2, "Search");
+		objHomePage = new HomePage(uiDriver);
+		objHomePage.enterLocation(locn);
+		objSearchResultPage = objHomePage.clickOnSearchButton();
+		SearchResultPage searchRes = new SearchResultPage(uiDriver);
+		searchRes.verifyJobLocations(locn);
 		objHomePage.clickOnSiteLogo();
+		
 		
 	}
 	
 	@Test(priority=2)
 	public void verifySearchByExperienceField() throws Exception{
-		objNKCommon = new NKCommon(uiDriver);
+		/*objNKCommon = new NKCommon(uiDriver);
 		objNKCommon.closepopUp();
 		objHomePage = new HomePage(uiDriver);
 		objHomePage.enterSkillEntry(NKConstants.SKILL);
@@ -65,10 +89,24 @@ NKCommon objNKCommon;
 		int exp = objHomePage.getSelectedYrsExp();
 		objSearchResultPage = objHomePage.clickOnSearchButton();
 		objSearchResultPage.verifyExp(exp);
+		objHomePage.clickOnSiteLogo();*/
+		
+		objNKCommon = new NKCommon(uiDriver);
+		objNKCommon.closepopUp();
+		objBasePageObject = new BasePageObject(uiDriver);
+		String skill = objBasePageObject.getExcelTest(1, 1, "Search");
+		objHomePage = new HomePage(uiDriver);
+		objHomePage.enterSkillEntry(skill);
+		objHomePage.SelectExperience();
+		int exp = objHomePage.getSelectedYrsExp();
+		objSearchResultPage = objHomePage.clickOnSearchButton();
+		objSearchResultPage.verifyExp(exp);
 		objHomePage.clickOnSiteLogo();
+		
+		
 	}
 		
-	@Test(priority = 14)
+	@Test(priority = 14,enabled = false)
 	public void verifyRefineByEducation() throws Exception{
 		objSearchResultPage = new SearchResultPage(uiDriver);
 		objSearchResultPage.clickOnEducation();
@@ -86,7 +124,7 @@ NKCommon objNKCommon;
 		objSearchResultPage.clickOnEducation();
 	}
 
-	@Test(priority = 12)	
+	@Test(priority = 12,enabled = false)	
 	public void verifyRefineByIndustryType() throws Exception{
 		objSearchResultPage = new SearchResultPage(uiDriver);
 		objSearchResultPage.clickOnIndustry();
@@ -105,7 +143,7 @@ NKCommon objNKCommon;
 		
 	}
 	
-	@Test(priority = 13)
+	@Test(priority = 13,enabled = false)
 	public void verifyRefineByIndustryPopUp() throws Exception{
 		objSearchResultPage = new SearchResultPage(uiDriver);
 		objSearchResultPage.clickOnIndustry();
@@ -133,7 +171,7 @@ NKCommon objNKCommon;
 		
 	}
 	
-	@Test(priority = 15)
+	@Test(priority = 15,enabled = false)
 	public void verifyRefineByEducationPopUp() throws Exception{
 		objSearchResultPage = new SearchResultPage(uiDriver);
 		objSearchResultPage.clickOnEducation();
@@ -159,7 +197,7 @@ NKCommon objNKCommon;
 		
 	}
 		
-	@Test(priority = 9)	
+	@Test(priority = 9,enabled = false)	
 	public void verifyRefineByFreshness() throws Exception{	
 		objSearchResultPage = new SearchResultPage(uiDriver);
 		objSearchResultPage.clickOnFreshnessArrow();
@@ -171,7 +209,7 @@ NKCommon objNKCommon;
 		objSearchResultPage.verifyDatePosted(daysSelected);
 	}
 	
-	@Test(priority = 11)
+	@Test(priority = 11,enabled = false)
 	public void verifyRefineByLocationPopUp() throws Exception{
 		objSearchResultPage = new SearchResultPage(uiDriver);
 		objSearchResultPage.verifyLocationDropdown();
@@ -190,7 +228,7 @@ NKCommon objNKCommon;
 		
 	}
 	
-	@Test(priority = 10)
+	@Test(priority = 10,enabled = false)
 	public void verifySearchByLocationSection() throws Exception{
 		objSearchResultPage = new SearchResultPage(uiDriver);
 		objSearchResultPage.clickOnLocation();
@@ -202,7 +240,7 @@ NKCommon objNKCommon;
 		objSearchResultPage.clickOnLocationBangalore();
 	}
 		
-	@Test(priority = 4)
+	@Test(priority = 4,enabled = false)
 	public void verifySearchResultsPage(){
 		objSearchResultPage = new SearchResultPage(uiDriver);
 		objSearchResultPage.verifyNaukriLogo();
@@ -224,7 +262,7 @@ NKCommon objNKCommon;
 		objSearchResultPage.verifyfressnessSection();
 	}
 	
-	@Test(priority = 5)
+	@Test(priority = 5,enabled = false)
 	public void verifyRefineResultsSection(){
 		objSearchResultPage = new SearchResultPage(uiDriver);
 		objSearchResultPage.verifyLocationSection();
@@ -237,7 +275,7 @@ NKCommon objNKCommon;
 			
 	}
 	
-	@Test(priority = 8)
+	@Test(priority = 8,enabled = false)
 	public void verifySearchResultsSection(){
 		objSearchResultPage = new SearchResultPage(uiDriver);
 		objSearchResultPage.verifyJobCount();
@@ -251,7 +289,7 @@ NKCommon objNKCommon;
 		objSearchResultPage.verifySortByDDDate();			
 	}
 	
-	@Test(priority = 7)
+	@Test(priority = 7,enabled = false)
 	public void verifySearchDetailedViewResults() throws Exception{
 		
 		objSearchResultPage.clickOnDetailedViewIcon();
@@ -265,7 +303,7 @@ NKCommon objNKCommon;
 		
 	}
 	
-	@Test(priority = 6)
+	@Test(priority = 6,enabled = false)
 	public void verifySearchListingViewResults() throws Exception{
 		
 		objSearchResultPage.clickOnListViewIcon();

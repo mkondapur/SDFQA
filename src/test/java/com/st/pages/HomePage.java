@@ -47,7 +47,7 @@ public class HomePage extends BasePageObject
 	By postinstajob=By.xpath("//ul/li[2]/a[@title='Post an Insta Job']");
 	By AllJobsheadlinks=By.xpath("//div[@class='wrap']/ul/li/a");
 	By SkillsTextbox=By.xpath("//div[@id='skill']/div/div[2]/input[1]");
-	By locationTextbox=By.xpath("//div/div[2]/input[1]");
+	By locationTextbox= By.xpath("//div[@id='location']/div/div[2]/input[1]");//By.xpath("//div/div[2]/input[1]");
 	By Experiencedropdown=By.xpath("//div[@id='exp_dd']/div/input[1]");
 	By Salarydropdown=By.xpath("//div[@id='salary_dd']/div/input[1]");
 	By Searchhomebutton=By.id("qsbFormBtn");
