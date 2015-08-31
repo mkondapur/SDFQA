@@ -4,6 +4,8 @@ public interface NKConstants {
 
 	public static final String Path_TestData = System.getProperty("user.dir")+"\\src\\test\\resource\\TestData\\testDataSheet.xlsx";
 	String PAGETITLE_HOMEPAGE = "Jobs - Recruitment - Job Search - Employment - Job Vacancies - Naukri.com";
+    String SKILL = "selenium";
+    String LOCATION = "bangalore";
     String EXPERIENCE = "3";
     String TITLE_INDUSTRYPOPUP = "Industry";
     String TITLE_EDUCATIONPOPUP = "Education";
