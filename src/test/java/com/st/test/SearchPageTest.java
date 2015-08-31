@@ -36,15 +36,6 @@ BasePageObject objBasePageObject;
 	@Test(priority=3)
 	public void verifySearchBySkill() throws Exception{
 		
-		/*objNKCommon = new NKCommon(uiDriver);
-		objNKCommon.closepopUp();
-		objHomePage = new HomePage(uiDriver);
-		objHomePage.enterSkillEntry(NKConstants.SKILL);
-		objHomePage.clickOnSearchButton();		
-		SearchResultPage searchRes = new SearchResultPage(uiDriver);
-	    String displayedSkill = searchRes.getSkillDisplayed();
-		searchRes.verifySkillsSelectedAndDisplayed(NKConstants.SKILL,displayedSkill);*/
-		
 		objNKCommon = new NKCommon(uiDriver);
 		objNKCommon.closepopUp();
 		objBasePageObject = new BasePageObject(uiDriver);
@@ -60,13 +51,7 @@ BasePageObject objBasePageObject;
 	
 	@Test(priority=1)
 	public void verifySearchByLocationField() throws Exception{
-		/*objHomePage = new HomePage(uiDriver);
-		objHomePage.enterLocation(NKConstants.LOCATION);
-		objSearchResultPage = objHomePage.clickOnSearchButton();
-		SearchResultPage searchRes = new SearchResultPage(uiDriver);
-		searchRes.verifyJobLocations();
-		objHomePage.clickOnSiteLogo();*/
-		
+			
 		objBasePageObject = new BasePageObject(uiDriver);
 		String locn = objBasePageObject.getExcelTest(1, 2, "Search");
 		objHomePage = new HomePage(uiDriver);
@@ -81,16 +66,7 @@ BasePageObject objBasePageObject;
 	
 	@Test(priority=2)
 	public void verifySearchByExperienceField() throws Exception{
-		/*objNKCommon = new NKCommon(uiDriver);
-		objNKCommon.closepopUp();
-		objHomePage = new HomePage(uiDriver);
-		objHomePage.enterSkillEntry(NKConstants.SKILL);
-		objHomePage.SelectExperience();
-		int exp = objHomePage.getSelectedYrsExp();
-		objSearchResultPage = objHomePage.clickOnSearchButton();
-		objSearchResultPage.verifyExp(exp);
-		objHomePage.clickOnSiteLogo();*/
-		
+			
 		objNKCommon = new NKCommon(uiDriver);
 		objNKCommon.closepopUp();
 		objBasePageObject = new BasePageObject(uiDriver);
@@ -106,7 +82,7 @@ BasePageObject objBasePageObject;
 		
 	}
 		
-	@Test(priority = 14,enabled = false)
+	@Test(priority = 14)
 	public void verifyRefineByEducation() throws Exception{
 		objSearchResultPage = new SearchResultPage(uiDriver);
 		objSearchResultPage.clickOnEducation();
@@ -124,7 +100,7 @@ BasePageObject objBasePageObject;
 		objSearchResultPage.clickOnEducation();
 	}
 
-	@Test(priority = 12,enabled = false)	
+	@Test(priority = 12)	
 	public void verifyRefineByIndustryType() throws Exception{
 		objSearchResultPage = new SearchResultPage(uiDriver);
 		objSearchResultPage.clickOnIndustry();
@@ -143,7 +119,7 @@ BasePageObject objBasePageObject;
 		
 	}
 	
-	@Test(priority = 13,enabled = false)
+	@Test(priority = 13)
 	public void verifyRefineByIndustryPopUp() throws Exception{
 		objSearchResultPage = new SearchResultPage(uiDriver);
 		objSearchResultPage.clickOnIndustry();
@@ -171,7 +147,7 @@ BasePageObject objBasePageObject;
 		
 	}
 	
-	@Test(priority = 15,enabled = false)
+	@Test(priority = 15)
 	public void verifyRefineByEducationPopUp() throws Exception{
 		objSearchResultPage = new SearchResultPage(uiDriver);
 		objSearchResultPage.clickOnEducation();
@@ -197,7 +173,7 @@ BasePageObject objBasePageObject;
 		
 	}
 		
-	@Test(priority = 9,enabled = false)	
+	@Test(priority = 9)	
 	public void verifyRefineByFreshness() throws Exception{	
 		objSearchResultPage = new SearchResultPage(uiDriver);
 		objSearchResultPage.clickOnFreshnessArrow();
@@ -209,7 +185,7 @@ BasePageObject objBasePageObject;
 		objSearchResultPage.verifyDatePosted(daysSelected);
 	}
 	
-	@Test(priority = 11,enabled = false)
+	@Test(priority = 11)
 	public void verifyRefineByLocationPopUp() throws Exception{
 		objSearchResultPage = new SearchResultPage(uiDriver);
 		objSearchResultPage.verifyLocationDropdown();
@@ -228,7 +204,7 @@ BasePageObject objBasePageObject;
 		
 	}
 	
-	@Test(priority = 10,enabled = false)
+	@Test(priority = 10)
 	public void verifySearchByLocationSection() throws Exception{
 		objSearchResultPage = new SearchResultPage(uiDriver);
 		objSearchResultPage.clickOnLocation();
@@ -240,7 +216,7 @@ BasePageObject objBasePageObject;
 		objSearchResultPage.clickOnLocationBangalore();
 	}
 		
-	@Test(priority = 4,enabled = false)
+	@Test(priority = 4)
 	public void verifySearchResultsPage(){
 		objSearchResultPage = new SearchResultPage(uiDriver);
 		objSearchResultPage.verifyNaukriLogo();
@@ -262,7 +238,7 @@ BasePageObject objBasePageObject;
 		objSearchResultPage.verifyfressnessSection();
 	}
 	
-	@Test(priority = 5,enabled = false)
+	@Test(priority = 5)
 	public void verifyRefineResultsSection(){
 		objSearchResultPage = new SearchResultPage(uiDriver);
 		objSearchResultPage.verifyLocationSection();
@@ -275,7 +251,7 @@ BasePageObject objBasePageObject;
 			
 	}
 	
-	@Test(priority = 8,enabled = false)
+	@Test(priority = 8)
 	public void verifySearchResultsSection(){
 		objSearchResultPage = new SearchResultPage(uiDriver);
 		objSearchResultPage.verifyJobCount();
@@ -289,7 +265,7 @@ BasePageObject objBasePageObject;
 		objSearchResultPage.verifySortByDDDate();			
 	}
 	
-	@Test(priority = 7,enabled = false)
+	@Test(priority = 7)
 	public void verifySearchDetailedViewResults() throws Exception{
 		
 		objSearchResultPage.clickOnDetailedViewIcon();
@@ -303,7 +279,7 @@ BasePageObject objBasePageObject;
 		
 	}
 	
-	@Test(priority = 6,enabled = false)
+	@Test(priority = 6)
 	public void verifySearchListingViewResults() throws Exception{
 		
 		objSearchResultPage.clickOnListViewIcon();

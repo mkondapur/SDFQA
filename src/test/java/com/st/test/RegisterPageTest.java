@@ -11,6 +11,7 @@ import com.st.pages.HomePage;
 import com.st.pages.JobAlertCreatedPage;
 import com.st.pages.RegistrationPage;
 import com.st.pages.SaveMyProfilePage;
+import com.st.util.BasePageObject;
 import com.st.util.BaseTestObject;
 
 public class RegisterPageTest extends BaseTestObject{
@@ -23,6 +24,7 @@ public class RegisterPageTest extends BaseTestObject{
 	CreateYourJobAlertsPage objCreateYourJobAlertsPage;
 	JobAlertCreatedPage objJobAlertCreatedPage;
 	NKCommon objNKCommon;	
+	BasePageObject objBasePageObject;
 	
 				
 		
@@ -70,29 +72,33 @@ public class RegisterPageTest extends BaseTestObject{
 		objRegistrationPage.clickOnClose();
 		objRegistrationPage.enterEmail(NKConstants.EMAILID_UNIQUE );
 		Thread.sleep(2000);
-		objRegistrationPage.enterPassword(NKConstants.PASSWORD_INVALID);
+		objBasePageObject = new BasePageObject(uiDriver);
+		String invalidPassword = objBasePageObject.getExcelTest(1, 1, "Register");
+		objRegistrationPage.enterPassword(invalidPassword);
 		Thread.sleep(2000);
 		objRegistrationPage.clickOnConfirmPasswordField();
 		Thread.sleep(2000);
 		objRegistrationPage.verifyPasswordErrorDisplayed();
 		objRegistrationPage.clickOnPasswordfield();
 		Thread.sleep(2000);
-		objRegistrationPage.enterPassword(NKConstants.PASSWORD_VALID);
+		String validPassword = objBasePageObject.getExcelTest(1, 2, "Register");
+		objRegistrationPage.enterPassword(validPassword);
 		Thread.sleep(2000);
-		objRegistrationPage.enterConfirmPassword(NKConstants.PASSWORD_INVALID);
+		objRegistrationPage.enterConfirmPassword(invalidPassword);
 		objRegistrationPage.clickOnNameField();
 		Thread.sleep(2000);
 		objRegistrationPage.verifyConfirmPasswordErrorDisplayed();
 		Thread.sleep(2000);
 		objRegistrationPage.clickOnConfirmPasswordField();
-		objRegistrationPage.enterConfirmPassword(NKConstants.PASSWORD_VALID);
+		objRegistrationPage.enterConfirmPassword(validPassword);
 		Thread.sleep(2000);
 		objRegistrationPage.clickOnNameField();
 		
 	}	
 	@Test(priority = 2)
 	public void verifyYourContactInformation() throws Exception{
-		objRegistrationPage.enterFullName(NKConstants.FULLNAME);
+		String fullName = objBasePageObject.getExcelTest(1, 3, "Register");
+		objRegistrationPage.enterFullName(fullName);
 		objRegistrationPage.clickOnJoinNaukriButton();
 		Thread.sleep(2000);
 		objRegistrationPage.verifyLocationDDErrorDisplayed();
@@ -115,25 +121,32 @@ public class RegisterPageTest extends BaseTestObject{
 	public void verifyYourCurrentEmploymentDetails() throws Exception{
 		objRegistrationPage = new RegistrationPage(uiDriver);
 		objRegistrationPage.verifyExperienceErrorDisplayed();
+		//String experience = objBasePageObject.getExcelTest(1, 3, "Search");
 		objRegistrationPage.selectExperience(NKConstants.EXPERIENCE);
 		Thread.sleep(1000);
-		objRegistrationPage.enterDesignation(NKConstants.DESIGNATION);
+		String designation = objBasePageObject.getExcelTest(1, 6, "Register");
+		objRegistrationPage.enterDesignation(designation);
 		objRegistrationPage.verifySkillsErrorDisplayed(NKConstants.ERROR_SKILLS);
-		objRegistrationPage.enterSkills(NKConstants.SKILL);
+		String skill = objBasePageObject.getExcelTest(1, 1, "Search");
+		objRegistrationPage.enterSkills(skill);
 		objRegistrationPage.verifyBasicEducationErrorDisplayed();
-		objRegistrationPage.selectBasicEducation(NKConstants.BASICEDUCATION);
+		String basicEducation = objBasePageObject.getExcelTest(1, 7, "Register");
+		objRegistrationPage.selectBasicEducation(basicEducation);
 		Thread.sleep(2000);
-		objRegistrationPage.chooseFilepath(NKConstants.FILEPATH_INVALID);
+		String invalidPath = objBasePageObject.getExcelTest(1, 8, "Register");
+		objRegistrationPage.chooseFilepath(invalidPath);
 		Thread.sleep(1000);
 		objRegistrationPage.verifyNonSupportedFileErrorDisplayed();
 		Thread.sleep(1000);
-		objRegistrationPage.chooseFilepath(NKConstants.FILEPATH_VALID);
+		String validPath = objBasePageObject.getExcelTest(1, 9, "Register");
+		objRegistrationPage.chooseFilepath(validPath);
 		Thread.sleep(1000);
 		objRegistrationPage.verifyUploadedFile();
 		Thread.sleep(2000);
 		objRegistrationPage.clickOnPasteResumeLink();
 		Thread.sleep(2000);
-		objRegistrationPage.enterResumeText(NKConstants.RESUMETEXT);
+		String resumeText = objBasePageObject.getExcelTest(1, 10, "Register");
+		objRegistrationPage.enterResumeText(resumeText);
 		objRegistrationPage.verifyJobAlertsCheckBox();
 		objRegistrationPage.verifyNotificationsCheckBox();
 		objRegistrationPage.verifyFastforwardEmailsCheckBox();
@@ -176,20 +189,25 @@ public class RegisterPageTest extends BaseTestObject{
 		objSaveMyProfilePage.verifySpecializationErrorDisplayed();
 		objSaveMyProfilePage.verifyInstitutionErrorDisplayed();
 		objSaveMyProfilePage.verifyYearOfCompletionErrorDisplayed();
-		objSaveMyProfilePage.SelectSpecialization(NKConstants.SPECIALIZATION);
+		String specialization = objBasePageObject.getExcelTest(1, 11, "Register");
+		objSaveMyProfilePage.SelectSpecialization(specialization);
 		Thread.sleep(1000);
-		objSaveMyProfilePage.SelectInstitution(NKConstants.INSTITUTION);
+		String institution = objBasePageObject.getExcelTest(1, 12, "Register");
+		objSaveMyProfilePage.SelectInstitution(institution);
 		Thread.sleep(1000);
 		objSaveMyProfilePage.SelectYearOfCompletion(NKConstants.YEAROFCOMPLETION);
 		Thread.sleep(1000);
 		objSaveMyProfilePage.verifyIndustryErrorDisplayed();
 		objSaveMyProfilePage.verifyFunctionalAreaErrorDisplayed();
 		objSaveMyProfilePage.verifyRoleErrorDisplayed();
-		objSaveMyProfilePage.selectCurrentIndustry(NKConstants.CURRENTINDUSTRY);
+		String currentIndustry = objBasePageObject.getExcelTest(1, 14, "Register");
+		objSaveMyProfilePage.selectCurrentIndustry(currentIndustry);
 		Thread.sleep(1000);
-		objSaveMyProfilePage.selectFunctionalArea(NKConstants.FUNCTIONALAREA);
+		String functionalArea = objBasePageObject.getExcelTest(1, 15, "Register");
+		objSaveMyProfilePage.selectFunctionalArea(functionalArea);
 		Thread.sleep(1000);
-		objSaveMyProfilePage.selectRole(NKConstants.ROLE);
+		String role = objBasePageObject.getExcelTest(1, 16, "Register");
+		objSaveMyProfilePage.selectRole(role);
 		Thread.sleep(1000);
 		objSaveMyProfilePage.verifySalaryErrorDisplayed();
 		objSaveMyProfilePage.selectsalLacs(NKConstants.SALARYINLACS);
@@ -227,9 +245,11 @@ public class RegisterPageTest extends BaseTestObject{
 		Thread.sleep(2000);
 		objCreateYourJobAlertsPage.verifyKeySkillsErrorDisplayed();
 		objCreateYourJobAlertsPage.verifyJobAlertNameErrorDisplayed();
-		objCreateYourJobAlertsPage.enterSkills(NKConstants.SKILL);
+		String skill = objBasePageObject.getExcelTest(1, 1, "Search");
+		objCreateYourJobAlertsPage.enterSkills(skill);
 		Thread.sleep(1000);
-		objCreateYourJobAlertsPage.enterJobAlertName(NKConstants.JOBALERTNAME);
+		String jobAlertName = objBasePageObject.getExcelTest(1, 18, "Register");
+		objCreateYourJobAlertsPage.enterJobAlertName(jobAlertName);
 		Thread.sleep(1000);
 		objCreateYourJobAlertsPage.clickOnCreateJobAlertButton();
 		Thread.sleep(4000);
