@@ -91,7 +91,7 @@ public class HomePage extends BasePageObject
 	By ExperiencedropdownValue=By.xpath("//div[@id='exp_dd']//ul/li[text()='3']");//By.xpath("//div[@id='exp_dd']/div/input[1]");
 	By jobsbycategorytext=By.xpath("//div[9]/h5");
 	By jobsbycategorylinsList=By.xpath("//div[9]/ul/li/a");
-	By viewallcategorieslink=By.xpath("View all Categories");
+	By viewallcategorieslink=By.partialLinkText("View all Categories");
 	By Foot_informationText=By.xpath("//div[1][@class='column ']/ul/li[@class='header']/a");
 	By Foot_informationLinks=By.xpath("//div/div[@class='wrap']/div[1]/ul[1]/li/a[@title[contains(text(),*)]]");
 	By Foot_jobseekerText=By.xpath("//div/div[@class='wrap']/div[2]/ul[1]/li[1][@class='header']/a");
@@ -106,6 +106,19 @@ public class HomePage extends BasePageObject
 	By Foot_followusLinks=By.xpath("//div[@class='fl column last-child']/div[2]/a[@title[contains(text(),*)]]");
 	By loginlink=By.xpath("//a[contains(@title,'Jobseeker Login')]/div");
 	
+	By Foot_information_aboutus=By.xpath("//div/div[@class='wrap']/div[1]/ul[1]/li[2]/a[1][@title[contains(text(),*)]]");
+	By Foot_information_TermsandConditions=By.xpath("//div/div[@class='wrap']/div[1]/ul[1]/li[3]/a[1][@title[contains(text(),*)]]");
+	By Foot_information_PrivacyandPolicy=By.xpath("//div/div[@class='wrap']/div[1]/ul[1]/li[4]/a[1][@title[contains(text(),*)]]");
+	By Foot_information_Resources=By.xpath("//div/div[@class='wrap']/div[1]/ul[1]/li[5]/a[1][@title[contains(text(),*)]]");
+	By Foot_information_Carrrerswith=By.xpath("//div/div[@class='wrap']/div[1]/ul[1]/li[6]/a[1][@title[contains(text(),*)]]");
+	By Foot_information_Sitemap=By.xpath("//div/div[@class='wrap']/div[1]/ul[1]/li[7]/a[1][@title[contains(text(),*)]]");
+	By Foot_information_contactus=By.xpath("//div/div[@class='wrap']/div[1]/ul[1]/li[8]/a[1][@title[contains(text(),*)]]");
+	By Foot_information_Faqs=By.xpath("//div/div[@class='wrap']/div[1]/ul[1]/li[9]/a[1][@title[contains(text(),*)]]");
+	By Foot_information_summons=By.xpath("//div/div[@class='wrap']/div[1]/ul[1]/li[10]/a[1][@title[contains(text(),*)]]");
+	By Foot_information_grievances=By.xpath("//div/div[@class='wrap']/div[1]/ul[1]/li[11]/a[1][@title[contains(text(),*)]]");
+	By Foot_information_fraudalert=By.xpath("//div/div[@class='wrap']/div[1]/ul[1]/li[12]/a[1][@title[contains(text(),*)]]");
+	
+	
 	By resumetext= By.xpath("//div[@id='scrolUp']/div/h2");
 	By termsandcon=By.cssSelector(".hd3");
 	By youeorder=By.xpath("//div[@class='greyBdrCrt']/span");
@@ -119,6 +132,9 @@ public class HomePage extends BasePageObject
 	By lnkLogin = By.xpath("//a[contains(@title,'Jobseeker Login')]/div");
 	By lnkAdvancedSearch = By.linkText("Advanced Search");
 	By txtSkill = By.xpath(".//*[@id='skill']//input[1]");
+	By bestplacestoworklinks=By.xpath("//div[@id='tabs_job']/ul/li");
+	
+	By locationtextbox=By.xpath("//div/div[2]/input[@class='sugInp w135']");
 	
 	
 	
@@ -1066,6 +1082,7 @@ public class HomePage extends BasePageObject
 		try 
 		{
 			uiDriver.findElement(knowyourresumescorelink).click();
+			switchToNewWindow();
 		} catch (Exception e) 
 		{
 			throw new Exception("FAILED WHILE CLICKING ON THE KNOW YOUR RESUME SCORE LINK" + "\n clickOnKnowYourResumeScoreLink" +e.getLocalizedMessage());
@@ -1721,14 +1738,13 @@ public class HomePage extends BasePageObject
 				arrayjobsbylocationslist.add(actual_Result);
 				jobsbylocationsweblist.get(i).click();
 				System.out.println(actual_Result);
-				
-				Thread.sleep(4000);
 				switchToNewWindow();
-				
-				
-			
+				/*expected_Result=getAttributeValue(locationTextbox, "value");
+				System.out.println("manju"+ expected_Result);*/
+				Thread.sleep(4000);
 				uiDriver.close();
 				uiDriver.switchTo().window(Parent_window);
+				
 			}
 			
 		} 
@@ -1756,6 +1772,9 @@ public class HomePage extends BasePageObject
 		}
 	}
 	/********************************************************************************************************************************************************/
+	
+
+	
 	
 	public JobSearchNaukriPage clickOnViewAllLocationsLink() throws Exception
 	{
@@ -1788,7 +1807,37 @@ public class HomePage extends BasePageObject
 		}
 	}
 	/********************************************************************************************************************************************************/
-	
+	public JobSearchNaukriPage clickOnJobsByCategoryList() throws Exception
+	{
+		Log.info("Verifcation of Jobs by Categoryies list");
+		try
+		{
+			Parent_window= uiDriver.getWindowHandle();
+			
+			List<WebElement> jobscategories= uiDriver.findElements(jobsbycategorylinsList);
+			
+			for (WebElement categ : jobscategories)
+			{
+				categ.click();
+				actual_Result=categ.getText();
+				//System.out.println(actual_Result);
+				
+				String splitx=actual_Result;
+				String delim=" ";
+				String catarr[]=splitx.split(delim);
+				System.out.println(catarr[0]);
+				Thread.sleep(4000);
+				switchToNewWindow();
+				uiDriver.close();
+				uiDriver.switchTo().window(Parent_window);
+			}
+			
+		} catch (Exception e) 
+		{
+			throw new Exception("FAILED WHILE CLICKING ON THE CATEGORIES LIST " + "\n clickOnJobsByCategoryList " + e.getLocalizedMessage());
+		}
+		return new JobSearchNaukriPage(uiDriver);
+	}
 	
 	/********************************************************************************************************************************************************/
 	
@@ -1797,7 +1846,7 @@ public class HomePage extends BasePageObject
 		Log.info("Verification of view all categories link");
 		try
 		{
-			flag=uiDriver.findElement(viewallcategorieslink).isDisplayed();
+			flag=isElementPresent(viewallcategorieslink);
 			Assert.assertTrue(flag, "View all categories Link is Missing");
 			return flag;
 		} catch (Exception e) 
@@ -1807,13 +1856,13 @@ public class HomePage extends BasePageObject
 	}
 	/********************************************************************************************************************************************************/
 	
-	public void  clickONViewAllCategoriesLink() throws Exception
+	public JobSearchNaukriPage  clickONViewAllCategoriesLink() throws Exception
 	{
 		Log.info("Clicking on view all categories Link");
 		
 		try 
 		{
-			verifyViewAllCategoriesLink();
+			//verifyViewAllCategoriesLink();
 			uiDriver.findElement(viewallcategorieslink).click();
 			
 		} 
@@ -1821,16 +1870,16 @@ public class HomePage extends BasePageObject
 		{
 			throw new Exception("FAILED WHILE CLICKING ON THE VIEW ALL CATEGORIES LINK" + "\n clickONViewAllCategoriesLink" + e.getLocalizedMessage());
 		}
-		
+		return new JobSearchNaukriPage(uiDriver);
 	}
 	/********************************************************************************************************************************************************/
 	
-	public boolean verifyFootINformationText() throws Exception
+	public boolean verifyFootInformationText() throws Exception
 	{
 		Log.info("Verifcation of Information Text");
 		try 
 		{
-			flag=uiDriver.findElement(Foot_informationText).isDisplayed();
+			flag=isElementPresent(Foot_informationText);
 			Assert.assertTrue(flag, "Foot information Text is missing");
 			return flag;
 		}
@@ -2146,21 +2195,14 @@ public class HomePage extends BasePageObject
 			return flag;
 		
 		}
-			public JobSearchNaukriPage clickOndelhiCallsLink() throws Exception
+			public JobSearchNaukriPage clickOndelhiJobsLink() throws Exception
 			{
 				Log.info("Clicking on naukri link");
 				
 				try 
 				{
-					//verifyNaukriCallsLink();
 					uiDriver.findElement(jobsbydelhi).click();
-					
 					switchToNewWindow();
-					
-				/*	WebElement eld= uiDriver.findElement(youeorder);
-					String actualresult= eld.getText();
-					String ExpectedResult="Your Order Details";
-					Assert.assertEquals(actualresult, ExpectedResult, "Your order is Not Matching");*/
 					
 				} catch (Exception e) 
 				{
@@ -2170,5 +2212,163 @@ public class HomePage extends BasePageObject
 				return new JobSearchNaukriPage(uiDriver);
 				
 			}
+			
+			public void verifyBestPlaceToWorkTabs()
+			{
+				List<WebElement> bestplacetabs=uiDriver.findElements(bestplacestoworklinks);
+			int counttabs=0;
+			String bestarray[]={"All Sectors","Iformation Technology","Manufacturing","Services"};
+			for (WebElement subtabs : bestplacetabs)
+			{
+				String tabsnames=subtabs.getText().trim();
+				System.out.println(tabsnames);
+				if(tabsnames.equals(bestarray[counttabs]))
+{
+					
+					flag=true;	
+}
+				else
+				{
+					flag=false;
+					System.out.println("Best Places to work tab is Not matching");
+					break;
+				}
+				counttabs++;
+			}
+			Assert.assertTrue(flag, "Expected Tabs of Best Places to Work are not displayed");
+			}
 		
-		}
+		
+
+/*******************************************************************************************************************************************************/
+
+public boolean verifyAboutusLink() throws Exception
+{
+Log.info("Verification of about us Link");	
+try
+{
+	flag=isElementPresent(Foot_information_aboutus);
+	Assert.assertTrue(flag, "About us Text is Missing on the Screen");
+	return flag;
+} catch (Exception e) 
+{
+	throw new Exception("FAILED WHILE VERIFYING THE ABOUT US TEXT" + "\n verifyAboutusLink" +e.getLocalizedMessage());
+}
+}
+/*******************************************************************************************************************************************************/
+
+public InfoEdgePage ClickOnAboutusLink() throws Exception
+{
+Log.info("Clicking on of about us Link");	
+try
+{
+	Parent_window=uiDriver.getWindowHandle();
+	uiDriver.findElement(Foot_information_aboutus).click();
+	switchToNewWindow();
+	
+} 
+catch (Exception e) 
+{
+	throw new Exception("FAILED WHILE VERIFYING THE ABOUT US TEXT" + "\n verifyAboutusText" +e.getLocalizedMessage());
+}
+return new InfoEdgePage(uiDriver);
+}
+/*******************************************************************************************************************************************************/
+
+public boolean verifyFootTermsAndConditionLink() throws Exception
+{
+Log.info("Verification of verify FootTermsAnd ConditionLink");	
+try
+{
+	flag=isElementPresent(Foot_information_TermsandConditions);
+	Assert.assertTrue(flag, "Terms and Conditions  Text is Missing on the Footer Screen");
+	return flag;
+} catch (Exception e) 
+{
+	throw new Exception("FAILED WHILE VERIFYING THE TERMS AND CONDITION  TEXT ON FOOTER" + "\n verifyFootTermsAndConditionLink" +e.getLocalizedMessage());
+}
+}
+/*******************************************************************************************************************************************************/
+
+public TermsAndConditions ClickOnFootTermsAndConditionLink() throws Exception
+{
+Log.info("Clicking on FootTerms And ConditionLink");	
+try
+{
+	Parent_window=uiDriver.getWindowHandle();
+	uiDriver.findElement(Foot_information_TermsandConditions).click();
+	switchToNewWindow();
+	
+} 
+catch (Exception e) 
+{
+	throw new Exception("FAILED WHILE CLICKING ON THE FOOTER TERMS AND CONDITIONS LINK" + "\n ClickOnFootTermsAndConditionLink" +e.getLocalizedMessage());
+}
+return new TermsAndConditions(uiDriver);
+}
+/*******************************************************************************************************************************************************/
+
+public boolean verifyPrivacyandPolicylink() throws Exception
+{
+Log.info("Verification of verify Privacy and PolicyLink");	
+try
+{
+	flag=isElementPresent(Foot_information_PrivacyandPolicy);
+	Assert.assertTrue(flag, "Privacy and Policy Text is Missing on the Footer Screen");
+	return flag;
+} catch (Exception e) 
+{
+	throw new Exception("FAILED WHILE VERIFYING THE Privacy and Policy  Link ON FOOTER" + "\n verifyPrivacyandPolicylink" +e.getLocalizedMessage());
+}
+}
+/*******************************************************************************************************************************************************/
+
+public JobSearchNaukriPage ClickOnPrivacyandPolicy() throws Exception
+{
+Log.info("Clicking on FootTerms And ConditionLink");	
+try
+{
+	Parent_window=uiDriver.getWindowHandle();
+	uiDriver.findElement(Foot_information_PrivacyandPolicy).click();
+	switchToNewWindow();
+	
+} 
+catch (Exception e) 
+{
+	throw new Exception("FAILED WHILE CLICKING ON THE PRIVACY AND POLICY LINK" + "\n ClickOnPrivacyandPolicy" +e.getLocalizedMessage());
+}
+return new JobSearchNaukriPage(uiDriver);
+}
+/*******************************************************************************************************************************************************/
+
+public boolean verifyResourceslink() throws Exception
+{
+Log.info("Verification of verify ResourcesLink");	
+try
+{
+	flag=isElementPresent(Foot_information_Resources);
+	Assert.assertTrue(flag, "Resources Text is Missing on the Footer Screen");
+	return flag;
+} catch (Exception e) 
+{
+	throw new Exception("FAILED WHILE VERIFYING THE RESOURCES LINK ON FOOTER" + "\n verifyResourceslink" +e.getLocalizedMessage());
+}
+}
+/*******************************************************************************************************************************************************/
+
+public JobSearchNaukriPage ClickOnResourcesLink() throws Exception
+{
+Log.info("Clicking on Resources link");	
+try
+{
+	//Parent_window=uiDriver.getWindowHandle();
+	uiDriver.findElement(Foot_information_Resources).click();
+	switchToNewWindow();
+} 
+catch (Exception e) 
+{
+	throw new Exception("FAILED WHILE CLICKING ON THE RESOURCES" + "\n ClickOnResourcesLink" +e.getLocalizedMessage());
+}
+return new JobSearchNaukriPage(uiDriver);
+}
+}

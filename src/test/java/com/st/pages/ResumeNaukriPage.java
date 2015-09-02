@@ -34,6 +34,20 @@ public class ResumeNaukriPage extends BasePageObject
 	By customersupportlink= By.partialLinkText("Customer Support service");
 	By Homeimagebutton=By.cssSelector(".home");
 	By NaukriFFSitelogo=By.cssSelector(".nLogo.fl>img");
+	By customername=By.id("cust_name");
+	By customerEmail=By.id("cust_email");
+	By customerPhone=By.id("cust_phone");
+	By customerCode=By.id("cust_code");
+	By customerTranscation=By.id("cust_transcode");
+	By customerQuery=By.id("cust_query");
+	By Submitbutton=By.xpath("//span/button/b");
+	
+	By Error_customername=By.id("errCustName");
+	By Error_customerEmail=By.id("errCustEmail");
+	By Error_customerPhone=By.id("errCustPhone");
+	By Error_customerQuery=By.id("errCustQuery");
+
+	
 	
 	
 	
@@ -278,5 +292,404 @@ public class ResumeNaukriPage extends BasePageObject
 	}
 
 	/*************************************************************************************************************************************/
+	
+	/**
+	 * @author manjunathr
+	 * @return flag
+	 * @throws Exception
+	 * This method will check Customer Name Text box is Present on the Screen
+	 */
+	public boolean verifyCustomerNameTextbox() throws Exception
+	{
+		Log.info("verification of verifyCustomerNameTextbox ");
+		try 
+		{
+			flag=isElementPresent(customername);
+			Assert.assertTrue(flag, "verifyCustomerNameTextbox  is Missing");
+			return flag;
+		} 
+		catch (Exception e) 
+		{
+
+			throw new Exception("FAILED WHILE VERIFYING THE verifyCustomerNameTextbox  " + " \n verifyCustomerNameTextbox  " +e.getLocalizedMessage());
+		}
+	}
+	
+/*************************************************************************************************************************************/
+	
+	/**
+	 * @author manjunathr
+	 * @return customername
+	 * @throws Exception
+	 * This method will check Customer Name Text box is Present on the Screen
+	 */
+	public void enterCustomerNameTextbox(String custrname ) throws Exception
+	{
+		Log.info("entering the verifyCustomerNameTextbox ");
+		try 
+		{
+			uiDriver.findElement(customername).sendKeys(custrname);
+			/*int length=custrname.length();
+			
+			
+			if ((length>1 && length<20) ==true)
+			{
+				flag=true;
+				System.out.println("Customer Name Entered");
+				System.out.println(uiDriver.findElement(Error_customername).getText());
+			} else
+			{
+				flag=false;
+			System.out.println("Customername is Not entered");
+			actual_Result=getText(Error_customername);
+			System.out.println("Manju" + actual_Result);
+			}
+			
+			if (custrname.trim().isEmpty())
+			{
+				System.out.println("Empty Spaces are not allowed");
+			}
+			else 
+			{
+				System.out.println("Valid entery");
+			}
+			
+		} */
+		}
+		catch (Exception e) 
+		{
+
+			throw new Exception("FAILED WHILE 	ENTERING THE verifyCustomerNameTextbox  " + " \n verifyCustomerNameTextbox  " +e.getLocalizedMessage());
+		}
+	}
+/*************************************************************************************************************************************/
+	
+	/**
+	 * @author manjunathr
+	 * @return flag
+	 * @throws Exception
+	 * This method will check Customer Name Text box is Present on the Screen
+	 */
+	public boolean verifyCustomerEmailTextbox() throws Exception
+	{
+		Log.info("verification of verifyCustomerEmailTextbox ");
+		try 
+		{
+			flag=isElementPresent(customerEmail);
+			Assert.assertTrue(flag, "verifyCustomerEmailTextbox  is Missing");
+			return flag;
+		} 
+		catch (Exception e) 
+		{
+
+			throw new Exception("FAILED WHILE VERIFYING THE verifyCustomerEmailTextbox  " + " \n verifyCustomerEmailTextbox  " +e.getLocalizedMessage());
+		}
+	}
+	
+/*************************************************************************************************************************************/
+	
+	/**
+	 * @author manjunathr
+	 * @return customerEmail
+	 * @throws Exception
+	 * This method will check Customer Name Text box is Present on the Screen
+	 */
+public void enterCustomerEmailID(String email) throws Exception
+{
+	try
+	{
+		uiDriver.findElement(customerEmail).sendKeys(email);
+		
+	} catch (Exception e) 
+	{
+		throw new Exception("FAILED WHILE ENTERING THE EMAIL ID " + "\n  enterCustomerEmailID  " + e.getLocalizedMessage());
+	}
+}
+/*************************************************************************************************************************************/
+
+/**
+ * @author manjunathr
+ * @return flag
+ * @throws Exception
+ * This method will check Customer Phone Number Text box is Present on the Screen
+ */
+public boolean verifyCustomerContactNumber() throws Exception
+{
+	Log.info("verification of verifyCustomerContactNumber ");
+	try 
+	{
+		flag=isElementPresent(customerPhone);
+		Assert.assertTrue(flag, "verifyCustomerContactNumber  is Missing");
+		return flag;
+	} 
+	catch (Exception e) 
+	{
+
+		throw new Exception("FAILED WHILE VERIFYING THE verifyCustomerContactNumber  " + " \n verifyCustomerContactNumber  " +e.getLocalizedMessage());
+	}
+}
+
+/*************************************************************************************************************************************/
+
+/**
+ * @author manjunathr
+ * @return customerPhone
+ * @throws Exception
+ * This method will check Customer Name Text box is Present on the Screen
+ */
+public void enterCustomerContactNumber(String phone) throws Exception
+{
+try 
+{
+	uiDriver.findElement(customerPhone).sendKeys(phone);
+} 
+catch (Exception e) {
+	throw new Exception("FAILED WHILE ENTERING THE CONATCT NUMBER " + "\n enterCustomerContactNumber  "+e.getLocalizedMessage());
+}	
+
+}
+/*************************************************************************************************************************************/
+/**
+ * @author manjunathr
+ * @return flag
+ * @throws Exception
+ * This method will check Transcation Code  box is Present on the Screen
+ */
+public boolean verifyCustomerCode() throws Exception
+{
+	Log.info("verification of verifyCustomerCode ");
+	try 
+	{
+		flag=isElementPresent(customerCode);
+		Assert.assertTrue(flag, "verifyCustomerCode  is Missing");
+		return flag;
+	} 
+	catch (Exception e) 
+	{
+
+		throw new Exception("FAILED WHILE VERIFYING THE verifyCustomerCode  " + " \n verifyCustomerCode  " +e.getLocalizedMessage());
+	}
+}
+
+/*************************************************************************************************************************************/
+
+/**
+ * @author manjunathr
+ * @return code
+ * @throws Exception
+ * This method will check Customer Name Text box is Present on the Screen
+ */
+public void enterCustomerCode(String code) throws Exception
+{
+try 
+{
+	uiDriver.findElement(customerCode).sendKeys(code);
+} 
+catch (Exception e) {
+	throw new Exception("FAILED WHILE ENTERING THE CUSTOMER TRANSCATION CODE " + "\n enterTranscationCode  "+e.getLocalizedMessage());
+}	
+
+}
+/*************************************************************************************************************************************/
+
+/**
+ * @author manjunathr
+ * @return flag
+ * @throws Exception
+ * This method will check Transcation Code  box is Present on the Screen
+ */
+public boolean verifyTranscationCode() throws Exception
+{
+	Log.info("verification of TranscationCode ");
+	try 
+	{
+		flag=isElementPresent(customerTranscation);
+		Assert.assertTrue(flag, "verifyTranscationCode  is Missing");
+		return flag;
+	} 
+	catch (Exception e) 
+	{
+
+		throw new Exception("FAILED WHILE VERIFYING THE verifyTranscationCode  " + " \n verifyTranscationCode  " +e.getLocalizedMessage());
+	}
+}
+
+/*************************************************************************************************************************************/
+
+/**
+ * @author manjunathr
+ * @return code
+ * @throws Exception
+ * This method will check Customer Name Text box is Present on the Screen
+ */
+public void enterTranscationCode(String Trancode) throws Exception
+{
+try 
+{
+	uiDriver.findElement(customerTranscation).sendKeys(Trancode);
+} 
+catch (Exception e) {
+	throw new Exception("FAILED WHILE ENTERING THE CUSTOMER TRANSCATION CODE " + "\n enterTranscationCode  "+e.getLocalizedMessage());
+}	
+
+}
+/*************************************************************************************************************************************/
+
+/**
+ * @author manjunathr
+ * @return flag
+ * @throws Exception
+ * This method will check Customer CodeText box is Present on the Screen
+ */
+public boolean verifySpecifyQuery() throws Exception
+{
+	Log.info("verification of verifySpecifyQuery ");
+	try 
+	{
+		flag=isElementPresent(customerQuery);
+		Assert.assertTrue(flag, "verifySpecifyQuery  is Missing");
+		return flag;
+	} 
+	catch (Exception e) 
+	{
+
+		throw new Exception("FAILED WHILE VERIFYING THE verifySpecifyQuery  " + " \n verifySpecifyQuery  " +e.getLocalizedMessage());
+	}
+}
+
+/*************************************************************************************************************************************/
+
+/**
+ * @author manjunathr
+ * @return query
+ * @throws Exception
+ * This method will check Specify Query Text box is Present on the Screen
+ */
+public void enterSpecifyQuery(String query) throws Exception
+{
+try 
+{
+	uiDriver.findElement(customerQuery).sendKeys(query);
+} 
+catch (Exception e) {
+	throw new Exception("FAILED WHILE ENTERING THE SPECIFY QUERY " + "\n enterSpecifyQuery  "+e.getLocalizedMessage());
+}	
+
+}
+/*************************************************************************************************************************************/
+
+/**
+ * @author manjunathr
+ * @return flag
+ * @throws Exception
+ * This method will check Submitbutton is Present on the Screen
+ */
+public boolean verifySubmitButton() throws Exception
+{
+	Log.info("verification of verifySubmitButton ");
+	try 
+	{
+		flag=isElementPresent(Submitbutton);
+		Assert.assertTrue(flag, "verifySubmitButton  is Missing");
+		return flag;
+	} 
+	catch (Exception e) 
+	{
+
+		throw new Exception("FAILED WHILE VERIFYING THE verifySubmitButton  " + " \n verifySubmitButton  " +e.getLocalizedMessage());
+	}
+}
+
+/*************************************************************************************************************************************/
+
+/**
+ * @author manjunathr
+ * 
+ * @throws Exception
+ * This method will check Customer Name Text box is Present on the Screen
+ */
+public void clickOnSubmit() throws Exception
+{
+try 
+{
+	uiDriver.findElement(Submitbutton).click();
+} 
+catch (Exception e) {
+	throw new Exception("FAILED WHILE ENTERING THE SUBMIT BUTTON " + "\n clickOnSubmit  "+e.getLocalizedMessage());
+}	
+
+}
+/*************************************************************************************************************************************/
+/**
+ * @author manjunathr
+ * @return flag
+ * @throws Exception
+ * This method will check CustomerNameErrorMessage is Present on the Screen
+ */
+public boolean verifyCustomerNameErrorMessage() throws Exception
+{
+	Log.info("verification of CustomerNameErrorMessage ");
+	try 
+	{
+		flag=isElementPresent(Error_customername);
+		Assert.assertTrue(flag, "CustomerNameErrorMessage  is Missing");
+		return flag;
+	} 
+	catch (Exception e) 
+	{
+
+		throw new Exception("FAILED WHILE VERIFYING THE CustomerNameErrorMessage  " + " \n CustomerNameErrorMessage  " +e.getLocalizedMessage());
+	}
+}
+
+/*************************************************************************************************************************************/
+/**
+ * @author manjunathr
+ * @return flag
+ * @throws Exception
+ * This method will check CustomerEmailErrorMessage is Present on the Screen
+ */
+public boolean verifyCustomerEmailErrorMessage() throws Exception
+{
+	Log.info("verification of verifyCustomerEmailErrorMessage ");
+	try 
+	{
+		flag=isElementPresent(Error_customerEmail);
+		Assert.assertTrue(flag, "CustomerEmailErrorMessage  is Missing");
+		return flag;
+	} 
+	catch (Exception e) 
+	{
+
+		throw new Exception("FAILED WHILE VERIFYING THE CustomerEmailErrorMessage  " + " \n CustomerEmailErrorMessage  " +e.getLocalizedMessage());
+	}
+}
+
+/*************************************************************************************************************************************/
+/**
+ * @author manjunathr
+ * @return flag
+ * @throws Exception
+ * This method will check Submitbutton is Present on the Screen
+ */
+public boolean verifyCustomerQueryErrorMessage() throws Exception
+{
+	Log.info("verification of CustomerQueryErrorMessage ");
+	try 
+	{
+		flag=isElementPresent(Error_customerQuery);
+		Assert.assertTrue(flag, "verifyCustomerQueryErrorMessage  is Missing");
+		return flag;
+	} 
+	catch (Exception e) 
+	{
+
+		throw new Exception("FAILED WHILE VERIFYING THE verifyCustomerQueryErrorMessage  " + " \n verifyCustomerQueryErrorMessage  " +e.getLocalizedMessage());
+	}
+}
+
+/*************************************************************************************************************************************/
+
+
 
 }

@@ -17,6 +17,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.BrowserType;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
@@ -27,8 +28,11 @@ public class BaseTestObject {
 	protected static WebDriver uiDriver;;
 	public static String propertyFilePath = System.getProperty("user.dir")+"\\src\\test\\resource\\TestData\\testData.properties";
 	public static String chromeDriverPath = System.getProperty("user.dir")+"\\src\\test\\resource\\Drivers\\chromedriver.exe";
+	
 	FileInputStream fileInput =null;
-	Properties ObjProperty = getPropertyContents();
+	//Properties ObjProperty = getPropertyContents();
+	Properties ObjProperty=getPropertyContents();
+	
 	public String browser = ObjProperty.getProperty("browser");
 	public String url = ObjProperty.getProperty("url");
 	/**
@@ -42,20 +46,30 @@ public class BaseTestObject {
      */
 	private static final Properties prop = new Properties();
 
-	private static void loadPropertiesFile() {
+	private static void loadPropertiesFile() 
+	{
 		InputStream input = null;
 
-		try {
+		try
+		{
 			input = new FileInputStream(propertyFilePath);
 			// load a properties file
 			prop.load(input);
-		} catch (IOException ex) {
+		} 
+		catch (IOException ex) 
+		{
 			ex.printStackTrace();
-		} finally {
-			if (input != null) {
-				try {
+		} 
+		finally 
+		{
+			if (input != null) 
+			{
+				try
+				{
 					input.close();
-				} catch (IOException e) {
+				} 
+				catch (IOException e) 
+				{
 					e.printStackTrace();
 				}
 			}
@@ -69,12 +83,15 @@ public class BaseTestObject {
 	
 	
 	
-	@BeforeTest(alwaysRun = true)
-    public void setup() throws Exception{
-        if(browser.equalsIgnoreCase("FF")){
+	@BeforeClass(alwaysRun = true)
+    public void setup() throws Exception
+	{
+        if(browser.equalsIgnoreCase("FF"))
+        {
             uiDriver = new FirefoxDriver();
         }
-        else if(browser.equalsIgnoreCase("GC")){
+        else if(browser.equalsIgnoreCase("GC"))
+        {
             System.setProperty("webdriver.chrome.driver",chromeDriverPath);
             uiDriver = new ChromeDriver();
         }
@@ -82,7 +99,8 @@ public class BaseTestObject {
             //System.setProperty("webdriver.ie.driver","C:\\IEdriver.exe");
             //uiDriver = new InternetExplorerDriver();
         }
-        else{
+        else
+        {
         	throw new Exception("Browser is not correct");
         }
         uiDriver.manage().deleteAllCookies();

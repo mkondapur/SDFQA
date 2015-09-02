@@ -1,14 +1,19 @@
 package com.st.test;
 
+import java.util.Properties;
+
 import org.apache.log4j.Logger;
+import org.apache.log4j.Priority;
 import org.testng.Assert;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import com.st.common.NKCommon;
+import com.st.common.NKConstants;
 import com.st.pages.CreateJobAlert;
 import com.st.pages.CustomerSupportPage;
 import com.st.pages.HomePage;
+import com.st.pages.InfoEdgePage;
 import com.st.pages.JobSearchNaukriPage;
 import com.st.pages.LoginNaukriPage;
 import com.st.pages.LoginRecruitNaukriPage;
@@ -17,6 +22,7 @@ import com.st.pages.RecruitNaukriPage;
 import com.st.pages.ResumeNaukriPage;
 import com.st.pages.TermsAndConditions;
 import com.st.util.BaseTestObject;
+import com.st.util.ExcelutilObject;
 
 import net.sourceforge.htmlunit.corejs.javascript.ObjToIntMap;
 
@@ -37,7 +43,9 @@ ResumeNaukriPage objResumeNaukriPage;
 CustomerSupportPage objCustomerSupportPage;
 NKCommon objNKCommon;
 JobSearchNaukriPage objJobSearchNaukriPage;
-
+InfoEdgePage objInfoEdgePage;
+//IMP for Excel 
+Properties objProperties=getPropertyContents();
 
 
 boolean flag;
@@ -249,31 +257,155 @@ public void clickOnNaukriFastForwardLink() throws Exception
 	
 }
 
-@Test(priority=7,enabled=true)
+@Test(priority=7,enabled=false)
 public void clickOnJobsbyLocationsLinks() throws Exception
 {
 try {
 	objHomePage= new HomePage(uiDriver);
 	objHomePage.verifyHomePageTitle();
 	objHomePage.verifyJobsByLocation();
-objJobSearchNaukriPage=objHomePage.clickOndelhiCallsLink();
-objJobSearchNaukriPage.verifyLocationName();
-objJobSearchNaukriPage.clickOnJobSearchNaukriPageSiteLogo();
-objHomePage.verifyHomePageTitle();
-objJobSearchNaukriPage=objHomePage.clickOnViewAllLocationsLink();
-objHomePage.verifyHomePageTitle();;
-	
+	objJobSearchNaukriPage=objHomePage.clickOnJobsBYLocationsName();
+	objJobSearchNaukriPage.clickOnJobSearchNaukriPageSiteLogo();
+	objHomePage.verifyHomePageTitle();
+	objJobSearchNaukriPage=objHomePage.clickOnViewAllLocationsLink();
+	objJobSearchNaukriPage.clickOnJobSearchNaukriPageSiteLogo();
+	objHomePage.verifyHomePageTitle();
 } catch (Exception e)
 {
 	throw new Exception("FAILED WHILE VERIFYING AND CLICKING ON THE JOBS BY LINKS " + "\n clickOnJobsbyLocationsLinks" +e.getLocalizedMessage());
 }	
 }
 
+@Test(priority=9,enabled=false)
+public void clickOnJobsCatLinks() throws Exception
+{
+	try
+	{
+		objHomePage= new HomePage(uiDriver);
+		objHomePage.verifyJobsByCategoryText();
+		objJobSearchNaukriPage=objHomePage.clickOnJobsByCategoryList();
+		objJobSearchNaukriPage.clickOnJobSearchNaukriPageSiteLogo();
+		System.out.println("Manjunath");
+		objHomePage.verifyHomePageTitle();
+		objHomePage.verifyViewAllCategoriesLink();
+		objJobSearchNaukriPage=objHomePage.clickONViewAllCategoriesLink();
+		objJobSearchNaukriPage.clickOnJobSearchNaukriPageSiteLogo();
+		System.out.println("Harish");
+		objHomePage.verifyHomePageTitle();
+		
+	} 
+	catch (Exception e) 
+	{
+		throw new Exception("FAILED THE TEST CASE OF VERIFY CLICK ON JOBS CATEGORY LINKS" + "\n clickOnJobsCatLinks" + e.getLocalizedMessage());
+	}
+}
+@Test(priority=8, enabled=false)
+public void verifybest() throws Exception
+{
+	objHomePage= new HomePage(uiDriver);
+	objHomePage.verifyBestPlaceToWorkTabs();
 
+}
+@Test(priority=10,enabled=false)
+public void clickOnFootInformationLinks() throws Exception
+{
+	try
+	{
+		parent_window=uiDriver.getWindowHandle();
+		objHomePage= new HomePage(uiDriver);
+		objHomePage.verifyFootInformationText();
+		objHomePage.verifyAboutusLink();
+		objInfoEdgePage=objHomePage.ClickOnAboutusLink();
+		objInfoEdgePage.verifyNaukriSiteImage();
+		objInfoEdgePage.clickOnNaukriSiteImage();
+		objInfoEdgePage.verifyNaukriimage();
+		objHomePage=objInfoEdgePage.clickOnNaukriImage();
+		objHomePage.verifyHomePageTitle();
+		objHomePage.verifyFootTermsAndConditionLink();
+		objTermsAndConditions=objHomePage.ClickOnFootTermsAndConditionLink();
+		Thread.sleep(5000);
+		objTermsAndConditions.clickOnCloseWindowTermsandConditions();
+		uiDriver.switchTo().window(parent_window);
+		System.out.println("Manju");
+		objHomePage.verifyHomePageTitle();
+		objHomePage.verifyPrivacyandPolicylink();
+		objJobSearchNaukriPage=objHomePage.ClickOnPrivacyandPolicy();
+		Thread.sleep(5000);
+		objJobSearchNaukriPage.verifyCloseWindowOfPrivacyPolicy();
+		objJobSearchNaukriPage.clickOnCloseWindowOfPrivacyPolicy();
+		Thread.sleep(5000);
+		uiDriver.switchTo().window(parent_window);
+		objHomePage.verifyHomePageTitle();
+		System.out.println("Hegde");
+		objHomePage.verifyResourceslink();
+		//parent_window=uiDriver.getWindowHandle();
+		objJobSearchNaukriPage=objHomePage.ClickOnResourcesLink();
+		objJobSearchNaukriPage.verifyCareerResourceText();
+		Thread.sleep(4000);
+		System.out.println("OLE");
+		objJobSearchNaukriPage.verifyHomePageSiteLogo();
+		objHomePage=objJobSearchNaukriPage.clickOnHomepagesitelogo();
+		objHomePage.verifyHomePageTitle();
+		System.out.println("Ashwini");
+		
+	} 
+	catch (Exception e) 
+	{
+		throw new Exception("FAILED THE TEST CASE OF VERIFY CLICK ON FOOT INFORMATION LINKS" + "\n clickOnFootInformationLinks   " + e.getLocalizedMessage());
+	}
+}
+
+@Test(priority=11,enabled=true)
+public void verifyContactCustomerService() throws Exception
+{
+	try
+	{
+		objHomePage= new HomePage(uiDriver);
+		objHomePage.verifyHomePageTitle();
+		objHomePage.verifyKnowYourResumeScoreLink();
+		objResumeNaukriPage=objHomePage.clickOnKnowYourResumeScoreLink();
+		String custrname=getExcelTest(1, 2);
+		objResumeNaukriPage.verifyCustomerServiceLink();
+		objResumeNaukriPage.clickOnCustomerSupportService();
+		objResumeNaukriPage.verifyCustomerNameTextbox();
+		//objResumeNaukriPage.enterCustomerNameTextbox("   ");
+		System.out.println(custrname);
+		objResumeNaukriPage.enterCustomerNameTextbox(custrname);
+		Thread.sleep(9000);
+		objResumeNaukriPage.clickOnSubmit();
+		
+		/*objResumeNaukriPage.verifyCustomerEmailTextbox();
+		objResumeNaukriPage.enterCustomerEmailID("asshwslwe@gmail.com");
+		objResumeNaukriPage.verifyCustomerContactNumber();
+		objResumeNaukriPage.enterCustomerContactNumber("9880306305");
+		objResumeNaukriPage.verifyCustomerCode();
+		objResumeNaukriPage.enterCustomerCode("96854789");
+		objResumeNaukriPage.verifyTranscationCode();
+		objResumeNaukriPage.enterTranscationCode("898798789789");
+		objResumeNaukriPage.verifySpecifyQuery();
+		objResumeNaukriPage.enterSpecifyQuery("Sampel testing for ");
+		Thread.sleep(9000);
+		objResumeNaukriPage.verifySubmitButton();
+		objResumeNaukriPage.clickOnSubmit();
+		Thread.sleep(9000);*/
+		
+	} 
+	
+	catch (Exception e)
+	{
+		throw new Exception("FAILED TEST CASE OF VERIFY CONTACT CUSTOMER SERVICE FUNCTION " + "\n verifyContactCustomerService  "+e.getLocalizedMessage());
+	}
+}
 public void closeAndSwitchToParent(String parentWindowName ) throws InterruptedException{
 	uiDriver.close();
 	Thread.sleep(5000);
 	uiDriver.switchTo().window(parentWindowName);
+}
+
+public String getExcelTest(int row,int column) throws Exception {
+	ExcelutilObject.setExcelFile(NKConstants.Path_TestData, "ContactCustomer");
+	return ExcelutilObject.getCellData(row, column);
+	
 }
 
 }
