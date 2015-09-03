@@ -201,7 +201,7 @@ BasePageObject objBasePageObject;
 		objSearchResultPage.clickOnLocationPune();
 		objSearchResultPage.clickOnPopUpRefineButton();
 		objSearchResultPage.clickOnLocation();
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		
 	}
 	
