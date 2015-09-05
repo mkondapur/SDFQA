@@ -1173,16 +1173,14 @@ public class SearchResultPage extends BasePageObject{
 	
 	/**This method helps us to verify JobLocation
 	 * @author Senthil
-	 * @param locn 
 	 * @return flag
 	 */
-	public void verifyJobLocations(String locn){
+	public void verifyJobLocations(){
 		List<WebElement>jobLoc = uiDriver.findElements(jobLocation);
 		for(WebElement jobLocn : jobLoc){
 			String jobLocText = jobLocn.getText().trim();
 			jobLocText = jobLocText.toLowerCase();
-			//if(jobLocText.contains(NKConstants.LOCATION)){
-			if(jobLocText.contains(locn)){
+			if(jobLocText.contains(NKConstants.LOCATION)){
 				flag=true;
 			}else{
 				flag=false;

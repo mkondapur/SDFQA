@@ -15,17 +15,23 @@ public class ReadFileData {
 	  
 	FileInputStream fileInput =null;
 	{
-	try {
+	try 
+	{
 		fileInput = new FileInputStream(propertyFilePath);
-	} catch (FileNotFoundException e) {
+	}
+	catch (FileNotFoundException e) 
+	{
 		e.printStackTrace();
 	}
 	Properties prop = new Properties();
 	
 	//load properties file
-	try {
+	try
+	{
 		prop.load(fileInput);
-	} catch (IOException e1) {
+	} 
+	catch (IOException e1) 
+	{
 		e1.printStackTrace();
 	}
 }

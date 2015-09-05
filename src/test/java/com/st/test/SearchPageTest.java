@@ -7,7 +7,6 @@ import com.st.common.NKConstants;
 import com.st.pages.HomePage;
 import com.st.pages.JobListingsPage;
 import com.st.pages.SearchResultPage;
-import com.st.util.BasePageObject;
 import com.st.util.BaseTestObject;
 
 public class SearchPageTest extends BaseTestObject {
@@ -16,7 +15,6 @@ SearchResultPage objSearchResultPage;
 HomePage objHomePage;
 JobListingsPage objJobListingPage;
 NKCommon objNKCommon;
-BasePageObject objBasePageObject;
 	
 	@Test(priority = -1)
 	public void popUpClose() throws InterruptedException{
@@ -38,48 +36,36 @@ BasePageObject objBasePageObject;
 		
 		objNKCommon = new NKCommon(uiDriver);
 		objNKCommon.closepopUp();
-		objBasePageObject = new BasePageObject(uiDriver);
-		String skill = objBasePageObject.getExcelTest(1, 1, "Search");
 		objHomePage = new HomePage(uiDriver);
-		objHomePage.enterSkillEntry(skill);		
+		objHomePage.enterSkillEntry(NKConstants.SKILL);
 		objHomePage.clickOnSearchButton();		
 		SearchResultPage searchRes = new SearchResultPage(uiDriver);
 	    String displayedSkill = searchRes.getSkillDisplayed();
-		searchRes.verifySkillsSelectedAndDisplayed(skill,displayedSkill);
-		
+		searchRes.verifySkillsSelectedAndDisplayed(NKConstants.SKILL,displayedSkill);
 	}
 	
 	@Test(priority=1)
 	public void verifySearchByLocationField() throws Exception{
-			
-		objBasePageObject = new BasePageObject(uiDriver);
-		String locn = objBasePageObject.getExcelTest(1, 2, "Search");
 		objHomePage = new HomePage(uiDriver);
-		objHomePage.enterLocation(locn);
+		objHomePage.enterLocation(NKConstants.LOCATION);
 		objSearchResultPage = objHomePage.clickOnSearchButton();
 		SearchResultPage searchRes = new SearchResultPage(uiDriver);
-		searchRes.verifyJobLocations(locn);
+		searchRes.verifyJobLocations();
 		objHomePage.clickOnSiteLogo();
-		
 		
 	}
 	
 	@Test(priority=2)
 	public void verifySearchByExperienceField() throws Exception{
-			
 		objNKCommon = new NKCommon(uiDriver);
 		objNKCommon.closepopUp();
-		objBasePageObject = new BasePageObject(uiDriver);
-		String skill = objBasePageObject.getExcelTest(1, 1, "Search");
 		objHomePage = new HomePage(uiDriver);
-		objHomePage.enterSkillEntry(skill);
+		objHomePage.enterSkillEntry(NKConstants.SKILL);
 		objHomePage.SelectExperience();
 		int exp = objHomePage.getSelectedYrsExp();
 		objSearchResultPage = objHomePage.clickOnSearchButton();
 		objSearchResultPage.verifyExp(exp);
 		objHomePage.clickOnSiteLogo();
-		
-		
 	}
 		
 	@Test(priority = 14)

@@ -23,7 +23,6 @@ import org.testng.Assert;
 import org.testng.Reporter;
 
 import com.gargoylesoftware.htmlunit.javascript.host.Element;
-import com.st.common.NKConstants;
 
 public class BasePageObject {
 
@@ -70,7 +69,8 @@ public class BasePageObject {
 		return element.getText();
 	}
 
-    public  String getAttributeValue(By theElement,String attributeValue) {
+    public  String getAttributeValue(By theElement,String attributeValue)
+    {
 		WebElement element= uiDriver.findElement(theElement);
 		return element.getAttribute(attributeValue);
 	}
@@ -303,13 +303,16 @@ public class BasePageObject {
 			Thread.sleep(3000);
 	}
 	
-	public void switchToNewWindow() throws Exception {
-		for (String winHandle : uiDriver.getWindowHandles()) {
+	public void switchToNewWindow() throws Exception
+	{
+		for (String winHandle : uiDriver.getWindowHandles())
+		{
 			uiDriver.switchTo().window(winHandle);
 		}
 	}
 
-	public  String getWindowName() throws Exception {
+	public  String getWindowName() throws Exception 
+	{
 		String windowName = uiDriver.getWindowHandle();
 		return windowName;
 	}
@@ -325,23 +328,14 @@ public class BasePageObject {
 		uiDriver.switchTo().window(windowName);
 		waitImplicit(3000);
 	}
-public  String getPageTitle() {
+public  String getPageTitle()
+{
 		return uiDriver.getTitle().trim();
-	}
+}
 	
 	public  void compareTwoStrings(String Actual, String Expected, String Message) {
 		Assert.assertEquals(Actual, Expected, Message);
 	}
-	
-	public String getExcelTest(int row,int column,String sheetName) throws Exception {
-		ExcelutilObject.setExcelFile(NKConstants.Path_TestData, sheetName);
-		return ExcelutilObject.getCellData(row, column);
-		
-	}
-	
-	
-	
-	
 
 
 }
