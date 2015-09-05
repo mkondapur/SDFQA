@@ -74,7 +74,7 @@ public class LoginPageTest extends BaseTestObject {
 			objForgotPasswordPage.resetPasswordTitle();
 			objHomePage.clickOnSiteLogo();
 			}
-		 @Test(priority=4,enabled=false)
+		 @Test(priority=4,enabled=true)
 		public void resetPassword() throws Exception{
 			objHomePage=new HomePage(uiDriver);
 			objLoginPage=objHomePage.clickOnLoginbutton();
