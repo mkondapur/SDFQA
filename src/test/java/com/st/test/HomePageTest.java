@@ -23,6 +23,7 @@ import com.st.pages.ResumeNaukriPage;
 import com.st.pages.TermsAndConditions;
 import com.st.util.BaseTestObject;
 import com.st.util.ExcelutilObject;
+import com.thoughtworks.selenium.webdriven.commands.GetSelectOptions;
 
 import net.sourceforge.htmlunit.corejs.javascript.ObjToIntMap;
 
@@ -102,8 +103,17 @@ try
 } 
 catch (Exception e) 
 {
+	
 	throw new Exception("FAILED WHILE CLICKING ON EMPLOYER ZONE TESTCASE" + "\n clickOnEmployerZone " +e.getLocalizedMessage());
+	
+	
 }
+
+//Adding screenshot
+/*catch (AssertionError  error) {
+	Assert.fail();
+	
+}*/
 }
 @Test (priority=4, enabled=false)
 public void clickOnBuyonlineLinks() throws Exception
