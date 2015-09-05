@@ -19,6 +19,7 @@ public class ExcelutilObject {
 	private static XSSFSheet ExcelWSheet;
 	 
 	private static XSSFWorkbook ExcelWBook;
+	//private static XSSFWorkbook ExeclWBook;
 
 	private static XSSFCell Cell;
 
@@ -27,7 +28,8 @@ public class ExcelutilObject {
 	
 //This method is to set the File path and to open the Excel file, Pass Excel Path and Sheetname as Arguments to this method
 
-public static void setExcelFile(String Path,String SheetName) throws Exception {
+public static void setExcelFile(String Path,String SheetName) throws Exception 
+{
 
 		try {
 
@@ -41,7 +43,9 @@ public static void setExcelFile(String Path,String SheetName) throws Exception {
 
 		ExcelWSheet = ExcelWBook.getSheet(SheetName);
 
-		} catch (Exception e){
+		} 
+		catch (Exception e)
+		{
 
 			throw (e);
 
@@ -61,7 +65,9 @@ public  static String getCellData(int RowNum, int ColNum) throws Exception{
 
 			return CellData;
 
-			}catch (Exception e){
+			}
+		catch (Exception e)
+		{
 
 			return"";
 

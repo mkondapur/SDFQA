@@ -1,25 +1,8 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Page Object test example">
-<parameter name="url" value="http://www.naukri.com/"/>
-<parameter name="browserType" value="FF"/>
   <test name="sample test">
     <classes>
-      <class name="com.nk.tests.HomePageTest">
-      <methods>
-       <include name="clickOnSiteLogoAndCheckThePageTitle"></include>
-     <include name="clickOnPostinsta"></include>
-     <include name="clickOnTermsConditions"></include>
-     <include name="VerifyHeaderMenuNames"></include>
-     <include name="clickOnEmployerZone"></include>
-     <include name="clickOnBuyonlineLinks"></include>
-     <include name="clickOnPostYourCV"></include>
-     <include name="clickOnCreateJobAlert"></include>
-     <include name="clickOnNaukriFastForwardLink"></include>
-     
-     
-     
-           </methods>
-           </class>
+      <class name="com.st.test.HomePageTest"/>
     </classes>
   </test>
 </suite>

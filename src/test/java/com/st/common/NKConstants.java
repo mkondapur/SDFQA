@@ -15,7 +15,7 @@ public interface NKConstants {
     String MESSAGE_REGISTRATIONPAGE = "Become a Member of Naukri.com and find the right job. Create your Profile now, Free!";
     String ERROR_EMAIL = "Please specify your email ID.";
     String EMAILID_EXISTING = "balu.kumar@gmail.com";
-    String EMAILID_UNIQUE = "sssundsderi1rrr00999@gmail.com";
+    String EMAILID_UNIQUE = "sssundsderi1rr00999@gmail.com";
     String PASSWORD_INVALID = "aks";
     String ERROR_PASSWORD = "Password chosen must be minimum 6 characters long.";
     String PASSWORD_VALID = "GODKING";

@@ -187,6 +187,7 @@ NKCommon objNKCommon;
 		objSearchResultPage.clickOnLocationPune();
 		objSearchResultPage.clickOnPopUpRefineButton();
 		objSearchResultPage.clickOnLocation();
+		Thread.sleep(2000);
 		
 	}
 	
