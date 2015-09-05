@@ -123,11 +123,11 @@ public class RegisterPageTest extends BaseTestObject{
 		objRegistrationPage.verifyBasicEducationErrorDisplayed();
 		objRegistrationPage.selectBasicEducation(NKConstants.BASICEDUCATION);
 		Thread.sleep(2000);
-		objRegistrationPage.chooseFilepath(NKConstants.FILEPATH_INVALID);
+		objRegistrationPage.chooseFilepath(NKConstants.Path_ResumeInvalid);
 		Thread.sleep(1000);
 		objRegistrationPage.verifyNonSupportedFileErrorDisplayed();
 		Thread.sleep(1000);
-		objRegistrationPage.chooseFilepath(NKConstants.FILEPATH_VALID);
+		objRegistrationPage.chooseFilepath(NKConstants.Path_ResumeValid);
 		Thread.sleep(1000);
 		objRegistrationPage.verifyUploadedFile();
 		Thread.sleep(2000);
