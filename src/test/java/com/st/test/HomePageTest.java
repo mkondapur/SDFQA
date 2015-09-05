@@ -374,6 +374,7 @@ public void verifyContactCustomerService() throws Exception
 		Thread.sleep(9000);
 		objResumeNaukriPage.clickOnSubmit();
 		
+		
 		/*objResumeNaukriPage.verifyCustomerEmailTextbox();
 		objResumeNaukriPage.enterCustomerEmailID("asshwslwe@gmail.com");
 		objResumeNaukriPage.verifyCustomerContactNumber();
