@@ -23,6 +23,7 @@ import org.testng.Assert;
 import org.testng.Reporter;
 
 import com.gargoylesoftware.htmlunit.javascript.host.Element;
+import com.st.common.NKConstants;
 
 public class BasePageObject {
 
@@ -336,6 +337,12 @@ public  String getPageTitle()
 	public  void compareTwoStrings(String Actual, String Expected, String Message) {
 		Assert.assertEquals(Actual, Expected, Message);
 	}
+	
+	public String getExcelTest(int row,int column,String sheetName) throws Exception {
+				ExcelutilObject.setExcelFile(NKConstants.Path_TestData, sheetName);
+				return ExcelutilObject.getCellData(row, column);
+				
+			}
 
 
 }

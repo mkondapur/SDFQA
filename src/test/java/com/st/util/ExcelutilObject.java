@@ -15,10 +15,10 @@ import com.st.common.NKConstants;
 
 public class ExcelutilObject {
 
-	
+	private static XSSFWorkbook ExcelWBook;
 	private static XSSFSheet ExcelWSheet;
 	 
-	private static XSSFWorkbook ExcelWBook;
+	
 	//private static XSSFWorkbook ExeclWBook;
 
 	private static XSSFCell Cell;
