@@ -22,7 +22,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.Reporter;
 
-import com.gargoylesoftware.htmlunit.javascript.host.Element;
 import com.st.common.NKConstants;
 
 public class BasePageObject {
