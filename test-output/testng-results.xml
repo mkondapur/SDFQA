@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="9" passed="9">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="151739" started-at="2015-08-31T18:12:54Z" finished-at="2015-08-31T18:15:25Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="151739" started-at="2015-08-31T18:12:54Z" finished-at="2015-08-31T18:15:25Z">
+      <class name="com.st.test.RegisterPageTest">
+        <test-method status="PASS" signature="setup()[pri:0, instance:com.st.test.RegisterPageTest@f10a6f]" name="setup" is-config="true" duration-ms="21760" started-at="2015-08-31T23:42:54Z" finished-at="2015-08-31T23:43:15Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="popUpClose()[pri:0, instance:com.st.test.RegisterPageTest@f10a6f]" name="popUpClose" duration-ms="1048" started-at="2015-08-31T23:43:15Z" finished-at="2015-08-31T23:43:17Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- popUpClose -->
+        <test-method status="PASS" signature="verifyRegistrationPage()[pri:0, instance:com.st.test.RegisterPageTest@f10a6f]" name="verifyRegistrationPage" duration-ms="13297" started-at="2015-08-31T23:43:17Z" finished-at="2015-08-31T23:43:30Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyRegistrationPage -->
+        <test-method status="PASS" signature="verifyCreateLoginDetails()[pri:0, instance:com.st.test.RegisterPageTest@f10a6f]" name="verifyCreateLoginDetails" duration-ms="28470" started-at="2015-08-31T23:43:30Z" finished-at="2015-08-31T23:43:58Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyCreateLoginDetails -->
+        <test-method status="PASS" signature="verifyYourContactInformation()[pri:0, instance:com.st.test.RegisterPageTest@f10a6f]" name="verifyYourContactInformation" duration-ms="9780" started-at="2015-08-31T23:43:58Z" finished-at="2015-08-31T23:44:08Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyYourContactInformation -->
+        <test-method status="PASS" signature="verifyYourCurrentEmploymentDetails()[pri:0, instance:com.st.test.RegisterPageTest@f10a6f]" name="verifyYourCurrentEmploymentDetails" duration-ms="28094" started-at="2015-08-31T23:44:08Z" finished-at="2015-08-31T23:44:36Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyYourCurrentEmploymentDetails -->
+        <test-method status="PASS" signature="verifyCompleteMyProfilePage()[pri:0, instance:com.st.test.RegisterPageTest@f10a6f]" name="verifyCompleteMyProfilePage" duration-ms="6556" started-at="2015-08-31T23:44:36Z" finished-at="2015-08-31T23:44:43Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyCompleteMyProfilePage -->
+        <test-method status="PASS" signature="verifyEducationDetails()[pri:0, instance:com.st.test.RegisterPageTest@f10a6f]" name="verifyEducationDetails" duration-ms="16599" started-at="2015-08-31T23:44:43Z" finished-at="2015-08-31T23:44:59Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyEducationDetails -->
+        <test-method status="PASS" signature="verifyCompleteMyProfile()[pri:0, instance:com.st.test.RegisterPageTest@f10a6f]" name="verifyCompleteMyProfile" duration-ms="6831" started-at="2015-08-31T23:44:59Z" finished-at="2015-08-31T23:45:06Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyCompleteMyProfile -->
+        <test-method status="PASS" signature="verifyCreateYourJobAlert()[pri:0, instance:com.st.test.RegisterPageTest@f10a6f]" name="verifyCreateYourJobAlert" duration-ms="17110" started-at="2015-08-31T23:45:06Z" finished-at="2015-08-31T23:45:23Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyCreateYourJobAlert -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.st.test.RegisterPageTest@f10a6f]" name="tearDown" is-config="true" duration-ms="2142" started-at="2015-08-31T23:45:23Z" finished-at="2015-08-31T23:45:25Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.st.test.RegisterPageTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
